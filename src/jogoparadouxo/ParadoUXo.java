@@ -78,7 +78,8 @@ public class ParadoUXo {
                     System.out.println("História\n");
 
                     System.out.println("Nas distantes terras de Valfendor, um pequeno elfo chamado UserX se preparava para o que se tornaria uma história contada através dos séculos.\n"
-                            + "Nascido em uma família simples e sem prestígio, num vilarejo pacato às margens do reino, UserX levava uma vida como tantas outras — regada à rotina, ao cansaço e à poeira do campo. Mas, diferente dos demais, havia nele um fogo silencioso que o impedia de se conformar. Queria entender o mundo e seus mistérios — desvendar tudo aquilo que ainda não se sabe.\n"
+                            + "Nascido em uma família simples e sem prestígio, num vilarejo pacato às margens do reino, UserX levava uma vida como tantas outras — regada à rotina, ao cansaço e à poeira do campo.\n"
+                            + " Mas, diferente dos demais, havia nele um fogo silencioso que o impedia de se conformar. Queria entender o mundo e seus mistérios — desvendar tudo aquilo que ainda não se sabe.\n"
                             + "Até que, certo dia, como se o destino tivesse ouvido esse desejo, sua vida tomou um rumo que nem os deuses poderiam prever.\n");
                     System.out.println("Pressione 1 para retornar ao menu");
                     botãoDeSkip();
@@ -136,13 +137,13 @@ public class ParadoUXo {
 
         for (int i = 0; i < emocao.length; i++) {
             emocao[i] = input.nextLine();
-            
+
         }
 
         return emocao;
     }
 
-    static String[] relatorioEmocoes(String[] emocao) { // mostra todas as emoções que o UserX sentiu 
+    static String[] relatorioEmocoes(String[] emocao) { // mostra todas as emoções que o UserX sentiu
 
         System.out.println("==== RELATÓRIO FINAL DAS EMOÇÕES QUE O USERX SENTIU DURANTE O JOGO ==== \n");
         intervaloCurto();
@@ -264,7 +265,7 @@ public class ParadoUXo {
         do {
             int perguntas = perguntas();
             System.out.println(">>> INFINITTUS OPTIONS <<<\n"
-                    + "HP: " + infinittus_optionsHP  + "%");
+                    + "HP: " + infinittus_optionsHP + "%");
             System.out.println("\nUserX\n"
                     + "HP: " + vida + "%\n");
             switch (perguntas) {
@@ -277,7 +278,7 @@ public class ParadoUXo {
                     alternativas = input.next();
                     if (alternativas.equalsIgnoreCase("D")) {
                         System.out.println("Resposta correta!");
-                        infinittus_optionsHP  = infinittus_optionsHP  - 50;
+                        infinittus_optionsHP = infinittus_optionsHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!");
                         vida = vida - 50;
@@ -346,17 +347,108 @@ public class ParadoUXo {
             System.out.println("Você derrotou Infinittus Options!!");
             intervaloCurto();
             emocoesUserX();
-            coletarItens();      
+            coletarItens();
         }
         return vida;
     }
-    
+    // kauane
+    static int giantFear(){
+        Scanner input = new Scanner(System.in);
+        int vida = 100;
+        int giant_fearHP = 100;
+        String alternativas;
+        System.out.println("Responda as questões corretamente para infringir o seu inimigo");
+        do {
+            int perguntas = perguntas();
+            System.out.println(">>> GIANT FEAR <<<\n" + "HP: " + vida + "%\n");
+            switch (perguntas) {
+                case 1:
+                    System.out.println("Como uma boa jornada do usuário pode ajudar a diminuir o medo de tomar decisões erradas em um site ou aplicativo?\n"
+                            + "A) Criando telas com poucas informações, para o usuário não pensar demais.\n"
+                            + " B) Mostrando opções sem explicar o que cada uma faz.\n"
+                            + " C) Oferecendo orientações claras, feedback em tempo real e segurança visual. \n"
+                            + " D) Usando termos técnicos para mostrar autoridade.");
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("C")) {
+                        System.out.println("Resposta Correta! ");
+                        giant_fearHP = giant_fearHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+                case 2:
+                    System.out.println("O que pode transformar a ansiedade do usuário em confiança durante a jornada digital?\n"
+                            + "A) Design minimalista, sem explicações ou ajuda.\n"
+                            + " B) Um fluxo claro, com etapas bem definidas, linguagem acessível e suporte disponível. \n"
+                            + " C) Ofertas constantes para acelerar decisões.\n"
+                            + " D) Formulários longos e complexos, para parecer mais completo.");
+
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta! ");
+                        giant_fearHP = giant_fearHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+                case 3:
+                    System.out.println("Qual elemento da experiência do usuário ajuda a transformar um medo inicial em um sentimento de conquista ou realização?\n"
+                            + "A) Fricções propositalmente criadas para filtrar usuários.\n"
+                            + " B) Gamificação mal aplicada, com recompensas confusas.\n"
+                            + " C) Jornadas intuitivas, com progressos visíveis e feedback positivo a cada etapa. \n"
+                            + " D) Interfaces ocultas para não sobrecarregar a pessoa com informações.");
+
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("C")) {
+                        System.out.println("Resposta Correta! ");
+                        giant_fearHP = giant_fearHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+                case 4:
+                    System.out.println("De que forma a jornada do usuário pode transformar uma ação temida (como uma compra ou envio de dados) em um momento de realização?\n"
+                            + "A) Garantindo clareza, controle e transparência em cada etapa da interação. \n"
+                            + " B) Criando urgência com contagem regressiva e pressão.\n"
+                            + " C) Limitando opções para acelerar a decisão.\n"
+                            + " D) Escondendo detalhes do processo para não gerar dúvidas.");
+
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("A")) {
+                        System.out.println("Resposta Correta! ");
+                        giant_fearHP = giant_fearHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+            }
+        }  while (giant_fearHP > 0 && vida > 0);
+
+        if (vida <= 0) {
+            System.out.println("\nUserX\n"
+                    + "HP: " + vida + "%\n");
+            intervaloCurto();
+            System.out.println("GameOver\n");
+            intervaloLongo();
+            créditosFinais();
+        } else {
+            System.out.println("Você derrotou Giant Fear!!");
+            intervaloCurto();
+            emocoesUserX();
+            coletarItens();
+        }
+        return vida;
+    }
     static void créditosFinais() { // Imprime os créditos finais
         System.out.println("Obrigado por jogar ParadoUXo!\n");
         intervaloCurto();
         System.out.println("Grupo 6\n");
         intervaloCurto();
-        System.out.println("Barbara Oliveira da Silva \n");
+        System.out.println("Barbara de Oliveira Silva \n");
         intervaloCurto();
         System.out.println("Bianca Meneses \n");
         intervaloCurto();
@@ -364,8 +456,121 @@ public class ParadoUXo {
         intervaloCurto();
         System.out.println("Davi Teixeira da Silva \n");
         intervaloCurto();
-        System.out.println("Kauane Miniro Coimbra");
+        System.out.println("Kauane Mineiro Coimbra");
     }
+
+    //barbara
+    static int sadnessSite() {
+        Scanner input = new Scanner(System.in);
+        int vida = 100;
+        int sadness_siteHP = 100;
+        String alternativas;
+        System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
+        do {
+            int perguntas = perguntas();
+            System.out.println(">>> SADNESS SITE <<<\n" + "HP: " + vida + "%\n");
+            switch (perguntas) {
+                case 1:
+                    System.out.println(" De que forma o excesso de informações apresentadas simultaneamente em uma interface digital pode comprometer a eficiência cognitiva do usuário durante sua jornada?\n"
+                            + " A) Promove uma melhor compreensão ao fornecer todos os dados disponíveis de uma vez.\n"
+                            + " B) Pode sobrecarregar a capacidade de processamento do usuário, resultando em fadiga cognitiva e decisões subótimas. \n"
+                            + " C) Incentiva o usuário a explorar todas as opções, aumentando o engajamento positivo.\n"
+                            + " D) Facilita a memorização de detalhes importantes ao expor o usuário a muitas informações. telas com poucas informações, para o usuário não pensar demais.\n");
+
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta! ");
+                        sadness_siteHP = sadness_siteHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+                case 2:
+                    System.out.println(" Considerando princípios avançados de design de interface, como a desorganização visual afeta a percepção de usabilidade e confiabilidade do sistema pelo usuário?\n"
+                            + "A) Um design desorganizado pode ser interpretado como inovador e, portanto, mais confiável."
+                            + "B) A desorganização visual reduz a clareza e pode induzir o usuário a questionar a credibilidade e a eficácia do sistema."
+                            + "C) A usabilidade não é afetada pela aparência visual, desde que as funcionalidades estejam presentes."
+                            + "D) Um layout caótico ajuda o usuário a focar apenas nas áreas que lhe interessam.");
+
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta! ");
+                        sadness_siteHP = sadness_siteHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Como a ausência de hierarquia visual coerente em uma página digital impacta os processos de atenção seletiva e tomada de decisão do usuário?\n"
+                            + "A) Facilita a seleção de informações ao distribuir o foco uniformemente entre todos os elementos.\n"
+                            + " B) Dificulta a priorização de informações, causando dispersão atencional e aumentando o esforço cognitivo para tomada de decisão. \n"
+                            + " C) Incentiva o usuário a explorar o conteúdo em profundidade, melhorando a retenção.\n"
+                            + " D) Não tem impacto, pois o usuário sempre segue um caminho predefinido na interface.");
+
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta! ");
+                        sadness_siteHP = sadness_siteHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+                case 4:
+                    System.out.println("  Quais são as implicações da presença de um design excessivamente carregado e sem foco no comportamento do usuário e nos indicadores de conversão?\n"
+                            + " A) Pode aumentar a curiosidade do usuário, elevando taxas de cliques e conversão.\n"
+                            + " B) Geralmente contribui para a diminuição da taxa de conversão devido à confusão, maior taxa de rejeição e frustração do usuário.\n"
+                            + " C) Melhora a experiência do usuário por meio do estímulo visual constante e da sensação de conteúdo abundante.\n"
+                            + " D) Não interfere nos indicadores de conversão, que dependem exclusivamente do preço e qualidade do produto.");
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta! ");
+                        sadness_siteHP = sadness_siteHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+
+            }
+        } while (sadness_siteHP > 0 && vida > 0);
+
+        if (vida <= 0) {
+            System.out.println("\nUserX\n"
+                    + "HP: " + vida + "%\n");
+            intervaloCurto();
+            System.out.println("GameOver\n");
+            intervaloLongo();
+            créditosFinais();
+        } else {
+            System.out.println("Você derrotou Sadness Site!!");
+            intervaloCurto();
+            emocoesUserX();
+            coletarItens();
+        }
+        return vida;
+    }
+
+
+    static void creditosFinais(){ // Imprime os créditos finais
+        System.out.println("Obrigado por jogar ParadoUXo!\n");
+        intervaloCurto();
+        System.out.println("Grupo 6\n");
+        intervaloCurto();
+        System.out.println("Barbara de Oliveira Silva \n");
+        intervaloCurto();
+        System.out.println("Bianca Meneses \n");
+        intervaloCurto();
+        System.out.println("Camilly Quintino Ramos \n");
+        intervaloCurto();
+        System.out.println("Davi Teixeira da Silva \n");
+        intervaloCurto();
+        System.out.println("Kauane Mineiro Coimbra");
+    }
+
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -399,7 +604,8 @@ public class ParadoUXo {
             System.out.println("— Bom, já que o senhor insiste...\n");
             intervaloCurto();
             System.out.println("Deu alguns passos à frente. A madeira escura e polida da carruagem refletia seu próprio rosto, e por um breve momento ele teve a estranha sensação de estar sendo observado por algo que não via.\n"
-                    + "De dentro, surgiu uma mão pálida, sustentando um bastão e portando um anel de metal negro, gravado com o símbolo de um olho aberto. Logo, a figura de um senhor emergiu, vestindo trajes de tecido fino e expressão serena, mas com um olhar que parecia atravessar o tempo.\n");
+                    + "De dentro, surgiu uma mão pálida, sustentando um bastão e portando um anel de metal negro, gravado com o símbolo de um olho aberto.\n"
+                    + " Logo, a figura de um senhor emergiu, vestindo trajes de tecido fino e expressão serena, mas com um olhar que parecia atravessar o tempo.\n");
             intervaloLongo();
             System.out.println("— Ah, aí está você — disse com um leve sorriso. — Eu já o esperava.\n");
             intervaloCurto();
@@ -434,11 +640,15 @@ public class ParadoUXo {
                 System.out.println("UserX caiu de joelhos sobre um chão frio e úmido. Quando abriu os olhos, já não estava mais no campo.\n "
                         + "Estava no que parece ter sido um grande salão de um enorme castelo, mas que o tempo transformou em ruínas, porém vazio, sem as enormes mesas, assentos, ou vidraças gigantes, exceto pelas tochas que contornavam as paredes e iluminavam o ambiente com chamas azuis pálidas.\n");
                 System.out.println("A sua frente, uma figura surgiu do chão, ali estava seu primeiro desafio.\n"
-                        + "UserX caiu de joelhos sobre um chão frio e úmido. Quando abriu os olhos, já não estava mais no campo. Estava no que parece ter sido um grande salão de um enorme castelo, mas que o tempo transformou em ruínas — vazio, sem as enormes mesas, assentos ou vidraças gigantes que outrora o adornavam.\n");
+                        + "UserX caiu de joelhos sobre um chão frio e úmido. Quando abriu os olhos, já não estava mais no campo. \n"
+                        + "Estava no que parece ter sido um grande salão de um enorme castelo, mas que o tempo transformou em ruínas — vazio, sem as enormes mesas, assentos ou vidraças gigantes que outrora o adornavam.\n");
                 System.out.println("Apenas as tochas que contornavam as paredes permaneceram acesas, tremulando com chamas azuis pálidas que lançavam sombras vivas sobre as paredes rachadas.\n"
                         + "O som grave de um trovão ecoou ao longe, reverberando por toda a estrutura. O chão tremeu levemente.\n");
-                System.out.println("Foi então que, à frente de UserX, o solo começou a se contorcer, rachando e se erguendo como se algo tentasse emergir das profundezas. Dali, uma sombra densa começou a tomar forma, sólida e monstruosa.\n"
-                        + "Dentro do breu, um orc de proporções ameaçadoras surgiu. Sua pele era de um cinza esverdeado, coberta por marcas de runas queimadas que pulsavam em um ritmo irregular, como se cada batida fosse uma manifestação viva da própria escuridão. Empunhava um enorme tronco de árvore torcido, com cravos de metal cravados em sua superfície — uma arma forjada mais para destruir do que para lutar.\n");
+                System.out.println("Foi então que, à frente de UserX, o solo começou a se contorcer, rachando e se erguendo como se algo tentasse emergir das profundezas. \n "
+                        + "Dali, uma sombra densa começou a tomar forma, sólida e monstruosa.\n"
+                        + "Dentro do breu, um orc de proporções ameaçadoras surgiu. \n"
+                        + "Sua pele era de um cinza esverdeado, coberta por marcas de runas queimadas que pulsavam em um ritmo irregular, como se cada batida fosse uma manifestação viva da própria escuridão.\n"
+                        + " Empunhava um enorme tronco de árvore torcido, com cravos de metal cravados em sua superfície — uma arma forjada mais para destruir do que para lutar.\n");
                 System.out.println("Seus olhos, de um amarelo fosforescente, fitaram UserX com um misto de raiva e propósito.\n"
                         + "De sua boca, um rugido gutural ecoou, fazendo as chamas das tochas vacilarem por um instante.\n"
                         + "Das sombras, uma voz reverberou dentro da mente de UserX — não a do orc, mas a da própria masmorra:\n"
@@ -485,7 +695,76 @@ public class ParadoUXo {
                         + "A única coisa que ouvia era o som ritmado de sua própria respiração. Seguiu em direção ao portal que surgira na parede oposta.");
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-                
+
+
+
+
+                ////kauane2
+                System.out.println("Dessa vez, quando seus pés tocaram o chão, o impacto reverberou de forma diferente.\n"
+                        + "O ar estava frio, denso e opressor. O salão era o mesmo em estrutura, mas a atmosfera havia mudado completamente.\n"
+                        + "As chamas azuis das tochas tremulavam fracas, como se temessem iluminar o que ali habitava.\n");
+                intervaloLongo();
+                System.out.println("O chão, coberto por uma fina névoa cinzenta, parecia pulsar como um organismo vivo.\n"
+                        +"No centro do salão, uma sombra começou a se formar — uma massa escura que crescia em tamanho, ganhando contornos cada vez mais nítidos\n");
+                System.out.println("Primeiro, vieram os braços.\n "
+                        + "Quatro, emergindo de dentro da escuridão, como raízes de uma árvore antiga.\n"
+                        + " Depois, o corpo colossal, coberto por uma pele espessa e marcada por símbolos arcanos que se moviam lentamente, como se respirassem.\n "
+                        + " Por fim, o rosto — ou algo que se assemelhava a um. Seus olhos eram fendas vazias, e de sua boca, um som rouco ecoava, meio gemido, meio lamento.\n");
+                System.out.println("A criatura se ergueu completamente, fazendo o teto do salão estremecer.\n"
+                        + " Cada um dos quatro braços se movia com independência — um empunhava uma espada lascada, outro uma corrente, o terceiro uma lâmina dupla e o quarto, vazio, tremia como se buscasse agarrar algo invisível\n");
+                System.out.println("UserX sentiu um calafrio profundo percorrer-lhe a espinha.\n"
+                        + " Não era apenas medo físico — era como se a presença daquela entidade arrancasse suas certezas mais íntimas.\n"
+                        + " O ambiente parecia se fechar sobre ele, distorcendo a luz e os sons.\n" +
+                        "De algum lugar, a mesma voz grave e etérea ecoou:\n");
+                System.out.println(">>> Giant Fear, o Terror da Forma.<<<\n" +
+                        "Aquele que alimenta sua força da dúvida e da hesitação.\n" +
+                        "Apenas quem encara a própria sombra pode superá-lo.\n");
+                intervaloCurto();
+                System.out.println("Pressione 1 para continuar");
+                botãoDeSkip();
+                giantFear();
+                System.out.println("Pressione 1 para continuar");
+                botãoDeSkip();
+
+                System.out.println("UserX mal teve tempo de deduzir o óbvio antes de ouvir o rangido da porta ao final do salão.\n"
+                        + "Nem se surpreendeu ao passar pela porta e se encontrar na mesma sala com um baú no centro.\n");
+                System.out.println("O ambiente todo era estranhamente artificial, não parecia ter sido feito por mãos humanas, e sim apenas gerado daquela forma a fim de atender um propósito.");
+                intervaloCurto();
+                System.out.println("Após abrir o baú e sentir sua energia restaurar-se, o silêncio o envolveu por completo.\n"
+                        + "A única coisa que ouvia era o som ritmado de sua própria respiração. Seguiu em direção ao portal que surgira na parede oposta.");
+                System.out.println("Pressione 1 para continuar");
+                botãoDeSkip();
+
+                ////////// acabou texto kauane
+
+                //começou parte barbara
+                System.out.println("Quando UserX atravessou o portal da sala de descanso, o ar do novo salão parecia pesado, impregnado por um silêncio opressivo.\n"
+                        + " As chamas azuis das tochas dançavam com mais intensidade, lançando sombras longas e trêmulas pelas paredes rachadas.\n");
+                intervaloLongo();
+                System.out.println("No centro do salão, uma figura começou a emergir da penumbra.\n"
+                        + " Um orc colossal, maior do que qualquer outro que UserX já enfrentara.\n"
+                        + " Mas o que mais chamava atenção eram duas cabeças, cada uma voltada em uma direção, observando-o com olhos que refletiam uma tristeza profunda e silenciosa.\n");
+                System.out.println("Cada cabeça segurava um galho retorcido, reforçado pelas runas que cobriam os braços e tronco da criatura.\n"
+                        + " Os galhos não eram apenas armas — pareciam extensões da própria essência da criatura, capazes de ferir e desestabilizar qualquer um que ousasse se aproximar.\n");
+                System.out.println("O corpo do orc era coberto por cicatrizes e marcas de antigas batalhas, e das runas gravadas na pele emanava uma energia melancólica, que parecia absorver a luz ao redor.\n"
+                        + " A simples presença do SADNESS SITE fazia o ar pesar, quase como se o próprio salão lamentasse junto com ele.\n");
+                System.out.println("A voz etérea da masmorra soou mais uma vez, profunda e grave:\n"
+                        +">>> Sadness Site, o Guardião da Melancolia. <<<\n" +
+                        "Duas cabeças, um único coração pesado.\n" +
+                        "Aqueles que não confrontam a tristeza em si mesmos jamais avançam.\n");
+                intervaloCurto();
+                System.out.println("Pressione 1 para continuar");
+                botãoDeSkip();
+                sadnessSite();
+                System.out.println("Pressione 1 para continuar");
+                botãoDeSkip();
+                System.out.println("Quatro dos desafios haviam sido superados.\n"
+                        + " UserX já não era mais o mesmo que quando entrara, era hora de colocar em prática tudo que havia aprendido até então\n");
+
+                System.out.println("Pressione 1 para continuar");
+                botãoDeSkip();
+
+
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
