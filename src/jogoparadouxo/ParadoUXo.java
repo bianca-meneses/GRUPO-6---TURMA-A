@@ -1,7 +1,14 @@
+package jogoparadouxo;
 
-import java.util.*;
 
-public class ParadoUXo {
+import java.util.*; 
+
+public class ParadoUXo { 
+
+    static String item1 = "ARCO E FLECHA COM CHAMAS";
+    static String item2 = "POÇÃO DO CRESCIMENTO";
+    static String item3 = "POÇÃO DA EMPATIA E ESPADA DE PRATA";
+    static String item4 = "CAPA DA INVISIBILIDADE";
 
     static int botãoDeSkip() { // Use quando precisar inserir um botão de "Próximo".
         Scanner input = new Scanner(System.in);
@@ -109,19 +116,32 @@ public class ParadoUXo {
         return opcões;
     }
 
-    static void coletarItens() { // coleta os itens recebidos após cada batalha
-
-        String[] item = new String[4];
-
-        item[0] = "ARCO E FLECHA COM CHAMAS";
-        item[1] = "POÇÃO DO CRESCIMENTO";
-        item[2] = "POÇÃO DA EMPATIA E ESPADA DE PRATA";
-        item[3] = "CAPA DA INVISIBILIDADE";
+    static void DI(String item1) { // utilizar na primeira batalha
 
         System.out.println("VOCÊ GANHOU UM NOVO ITEM...\n");
         intervaloCurto();
-        System.out.println("\n==== " + item[0] + " ===="); // colocar o número do item correspondente a indicação no enredo
+        System.out.println("\n==== " + item1 + " ====");
+    }
 
+    static void IO(String item2) { // utilizar na segunda batalha
+
+        System.out.println("VOCÊ GANHOU UM NOVO ITEM...\n");
+        intervaloCurto();
+        System.out.println("\n==== " + item2 + " ====");
+    }
+
+    static void GF(String item3) { // utilizar na terceira batalha
+
+        System.out.println("VOCÊ GANHOU UM NOVO ITEM...\n");
+        intervaloCurto();
+        System.out.println("\n==== " + item3 + " ====");
+    }
+
+    static void SS(String item4) { // utilizar na quarta batalha
+
+        System.out.println("VOCÊ GANHOU UM NOVO ITEM...\n");
+        intervaloCurto();
+        System.out.println("\n==== " + item4 + " ====");
     }
 
     static String[] emocoesUserX() { // coleta as emoções que o jogador sentiu
@@ -143,7 +163,7 @@ public class ParadoUXo {
         return emocao;
     }
 
-    static String[] relatorioEmocoes(String[] emocao) { // mostra todas as emoções que o UserX sentiu
+    static String[] relatorioEmocoes(String[] emocao) { // mostra todas as emoções que o UserX sentiu 
 
         System.out.println("==== RELATÓRIO FINAL DAS EMOÇÕES QUE O USERX SENTIU DURANTE O JOGO ==== \n");
         intervaloCurto();
@@ -249,7 +269,7 @@ public class ParadoUXo {
             System.out.println("Você derrotou Dark Interface!");
             intervaloCurto();
             emocoesUserX();
-            coletarItens();
+            DI(item1);
         }
         return vida;
     }
@@ -347,12 +367,12 @@ public class ParadoUXo {
             System.out.println("Você derrotou Infinittus Options!!");
             intervaloCurto();
             emocoesUserX();
-            coletarItens();
+            IO(item2);
         }
         return vida;
     }
-    // kauane
-    static int giantFear(){
+
+    static int giantFear() {
         Scanner input = new Scanner(System.in);
         int vida = 100;
         int giant_fearHP = 100;
@@ -426,7 +446,7 @@ public class ParadoUXo {
                     }
                     break;
             }
-        }  while (giant_fearHP > 0 && vida > 0);
+        } while (giant_fearHP > 0 && vida > 0);
 
         if (vida <= 0) {
             System.out.println("\nUserX\n"
@@ -439,10 +459,11 @@ public class ParadoUXo {
             System.out.println("Você derrotou Giant Fear!!");
             intervaloCurto();
             emocoesUserX();
-            coletarItens();
+            GF(item3);
         }
         return vida;
     }
+
     static void créditosFinais() { // Imprime os créditos finais
         System.out.println("Obrigado por jogar ParadoUXo!\n");
         intervaloCurto();
@@ -459,7 +480,6 @@ public class ParadoUXo {
         System.out.println("Kauane Mineiro Coimbra");
     }
 
-    //barbara
     static int sadnessSite() {
         Scanner input = new Scanner(System.in);
         int vida = 100;
@@ -549,13 +569,12 @@ public class ParadoUXo {
             System.out.println("Você derrotou Sadness Site!!");
             intervaloCurto();
             emocoesUserX();
-            coletarItens();
+            SS(item4);
         }
         return vida;
     }
 
-
-    static void creditosFinais(){ // Imprime os créditos finais
+    static void creditosFinais() { // Imprime os créditos finais
         System.out.println("Obrigado por jogar ParadoUXo!\n");
         intervaloCurto();
         System.out.println("Grupo 6\n");
@@ -570,13 +589,137 @@ public class ParadoUXo {
         intervaloCurto();
         System.out.println("Kauane Mineiro Coimbra");
     }
+    static void lutaFinal() {
+    Scanner input = new Scanner(System.in);
+    Random random = new Random();
 
+    // Emoções sentidas pelo jogador
+    String[] emocoes = new String[5];
+    int contadorEmocoes = 0;
+
+    System.out.println("\n=== A CHEGADA DO MESTRE DO CONHECIMENTO ===\n");
+    System.out.println("À sua frente, o último inimigo o aguardava.");
+    System.out.println("O Mestre do Conhecimento levitava, envolto por um manto vivo.");
+    System.out.println("— Parabéns por chegar até aqui, garoto. É hora de provar que é digno.");
+    System.out.println("O chão tremeu enquanto ele ergueu o bastão.\n");
+
+    // Perguntas serão sorteadas
+    int acertos = 0;
+    int totalPerguntas = 5;
+
+    for (int i = 0; i < totalPerguntas; i++) {
+        int pergunta = random.nextInt(8) + 1; // sorteia de 1 a 8
+        System.out.println("\nPergunta " + (i + 1) + ":");
+
+        switch (pergunta) {
+            case 1:
+                System.out.println("Na jornada do usuário, o que caracteriza o momento de 'descoberta'?");
+                System.out.println("A) Decidiu comprar");
+                System.out.println("B) Contato direto com o produto");
+                System.out.println("C) Identifica um problema e busca soluções");
+                System.out.println("D) Abandona a jornada");
+                System.out.print("Resposta: ");
+                char r1 = input.next().toUpperCase().charAt(0);
+                if (r1 == 'C') acertos++;
+                break;
+
+            case 2:
+                System.out.println("Qual é um ponto de contato digital indireto?");
+                System.out.println("A) Chat da empresa");
+                System.out.println("B) Publicação do cliente sobre a marca");
+                System.out.println("C) Avaliação em site de review");
+                System.out.println("D) Página do produto");
+                System.out.print("Resposta: ");
+                char r2 = input.next().toUpperCase().charAt(0);
+                if (r2 == 'C') acertos++;
+                break;
+
+            case 3:
+                System.out.println("Objetivo da análise de touchpoints:");
+                System.out.println("A) Aumentar etapas");
+                System.out.println("B) Reduzir custos de marketing");
+                System.out.println("C) Melhorar a experiência do usuário");
+                System.out.println("D) Criar métricas de vendas");
+                System.out.print("Resposta: ");
+                char r3 = input.next().toUpperCase().charAt(0);
+                if (r3 == 'C') acertos++;
+                break;
+
+            case 4:
+                System.out.println("Boa prática de usabilidade:");
+                System.out.println("A) Cores vibrantes em tudo");
+                System.out.println("B) Consistência visual");
+                System.out.println("C) Todas informações em 1 página");
+                System.out.println("D) Linguagem técnica");
+                System.out.print("Resposta: ");
+                char r4 = input.next().toUpperCase().charAt(0);
+                if (r4 == 'B') acertos++;
+                break;
+
+            case 5:
+                System.out.println("Por que emoções importam na experiência digital?");
+                System.out.println("A) Usuários emocionais evitam apps");
+                System.out.println("B) Emoções negativas aumentam tempo");
+                System.out.println("C) Emoções influenciam valor e confiança");
+                System.out.println("D) Emoções não interferem");
+                System.out.print("Resposta: ");
+                char r5 = input.next().toUpperCase().charAt(0);
+                if (r5 == 'C') acertos++;
+                break;
+
+            case 6:
+                System.out.println("Diferença entre usabilidade e UX:");
+                System.out.println("A) Usabilidade é subjetiva");
+                System.out.println("B) UX é só design gráfico");
+                System.out.println("C) Usabilidade é emocional");
+                System.out.println("D) Usabilidade = eficiência; UX = emoções + contexto");
+                System.out.print("Resposta: ");
+                char r6 = input.next().toUpperCase().charAt(0);
+                if (r6 == 'D') acertos++;
+                break;
+
+            case 7:
+                System.out.println("Barreira de usabilidade:");
+                System.out.println("A) Ícones universais");
+                System.out.println("B) Textos longos e linguagem técnica");
+                System.out.println("C) Feedback imediato");
+                System.out.println("D) Botões bem espaçados");
+                System.out.print("Resposta: ");
+                char r7 = input.next().toUpperCase().charAt(0);
+                if (r7 == 'B') acertos++;
+                break;
+
+            case 8:
+                System.out.println("O que define o mapa da jornada do usuário?");
+                System.out.println("A) Funil de vendas");
+                System.out.println("B) Etapas da interação com uma marca");
+                System.out.println("C) Relatório de visitas");
+                System.out.println("D) Organograma");
+                System.out.print("Resposta: ");
+                char r8 = input.next().toUpperCase().charAt(0);
+                if (r8 == 'B') acertos++;
+                break;
+        }
+
+        // Registrar emoção aleatória
+        if (contadorEmocoes < emocoes.length) {
+            String[] opcoes = {"medo", "determinação", "esperança", "raiva", "curiosidade"};
+            emocoes[contadorEmocoes] = opcoes[random.nextInt(opcoes.length)];
+            contadorEmocoes++;
+        }
+    }
+
+    }
+    
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    public static void main(String[] args) {
+    
+      public static void main(String[] args) {
+       
+
         if (menu() == 1) {
             System.out.println("\nNas distantes terras de Valfendor, um pequeno elfo chamado UserX se preparava para o que se tornaria uma história contada através dos séculos.\n"
                     + "Nascido em uma família simples e sem prestígio, num vilarejo pacato às margens do reino, UserX levava uma vida como tantas outras — regada à rotina, ao cansaço e à poeira do campo.\nMas, diferente dos demais, havia nele um fogo silencioso que o impedia de se conformar. Queria entender o mundo e seus mistérios — desvendar tudo aquilo que ainda não se sabe.\n"
@@ -695,17 +838,12 @@ public class ParadoUXo {
                         + "A única coisa que ouvia era o som ritmado de sua própria respiração. Seguiu em direção ao portal que surgira na parede oposta.");
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-
-
-
-
-                ////kauane2
                 System.out.println("Dessa vez, quando seus pés tocaram o chão, o impacto reverberou de forma diferente.\n"
                         + "O ar estava frio, denso e opressor. O salão era o mesmo em estrutura, mas a atmosfera havia mudado completamente.\n"
                         + "As chamas azuis das tochas tremulavam fracas, como se temessem iluminar o que ali habitava.\n");
                 intervaloLongo();
                 System.out.println("O chão, coberto por uma fina névoa cinzenta, parecia pulsar como um organismo vivo.\n"
-                        +"No centro do salão, uma sombra começou a se formar — uma massa escura que crescia em tamanho, ganhando contornos cada vez mais nítidos\n");
+                        + "No centro do salão, uma sombra começou a se formar — uma massa escura que crescia em tamanho, ganhando contornos cada vez mais nítidos\n");
                 System.out.println("Primeiro, vieram os braços.\n "
                         + "Quatro, emergindo de dentro da escuridão, como raízes de uma árvore antiga.\n"
                         + " Depois, o corpo colossal, coberto por uma pele espessa e marcada por símbolos arcanos que se moviam lentamente, como se respirassem.\n "
@@ -714,18 +852,17 @@ public class ParadoUXo {
                         + " Cada um dos quatro braços se movia com independência — um empunhava uma espada lascada, outro uma corrente, o terceiro uma lâmina dupla e o quarto, vazio, tremia como se buscasse agarrar algo invisível\n");
                 System.out.println("UserX sentiu um calafrio profundo percorrer-lhe a espinha.\n"
                         + " Não era apenas medo físico — era como se a presença daquela entidade arrancasse suas certezas mais íntimas.\n"
-                        + " O ambiente parecia se fechar sobre ele, distorcendo a luz e os sons.\n" +
-                        "De algum lugar, a mesma voz grave e etérea ecoou:\n");
-                System.out.println(">>> Giant Fear, o Terror da Forma.<<<\n" +
-                        "Aquele que alimenta sua força da dúvida e da hesitação.\n" +
-                        "Apenas quem encara a própria sombra pode superá-lo.\n");
+                        + " O ambiente parecia se fechar sobre ele, distorcendo a luz e os sons.\n"
+                        + "De algum lugar, a mesma voz grave e etérea ecoou:\n");
+                System.out.println(">>> Giant Fear, o Terror da Forma.<<<\n"
+                        + "Aquele que alimenta sua força da dúvida e da hesitação.\n"
+                        + "Apenas quem encara a própria sombra pode superá-lo.\n");
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 giantFear();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-
                 System.out.println("UserX mal teve tempo de deduzir o óbvio antes de ouvir o rangido da porta ao final do salão.\n"
                         + "Nem se surpreendeu ao passar pela porta e se encontrar na mesma sala com um baú no centro.\n");
                 System.out.println("O ambiente todo era estranhamente artificial, não parecia ter sido feito por mãos humanas, e sim apenas gerado daquela forma a fim de atender um propósito.");
@@ -734,10 +871,6 @@ public class ParadoUXo {
                         + "A única coisa que ouvia era o som ritmado de sua própria respiração. Seguiu em direção ao portal que surgira na parede oposta.");
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-
-                ////////// acabou texto kauane
-
-                //começou parte barbara
                 System.out.println("Quando UserX atravessou o portal da sala de descanso, o ar do novo salão parecia pesado, impregnado por um silêncio opressivo.\n"
                         + " As chamas azuis das tochas dançavam com mais intensidade, lançando sombras longas e trêmulas pelas paredes rachadas.\n");
                 intervaloLongo();
@@ -749,9 +882,9 @@ public class ParadoUXo {
                 System.out.println("O corpo do orc era coberto por cicatrizes e marcas de antigas batalhas, e das runas gravadas na pele emanava uma energia melancólica, que parecia absorver a luz ao redor.\n"
                         + " A simples presença do SADNESS SITE fazia o ar pesar, quase como se o próprio salão lamentasse junto com ele.\n");
                 System.out.println("A voz etérea da masmorra soou mais uma vez, profunda e grave:\n"
-                        +">>> Sadness Site, o Guardião da Melancolia. <<<\n" +
-                        "Duas cabeças, um único coração pesado.\n" +
-                        "Aqueles que não confrontam a tristeza em si mesmos jamais avançam.\n");
+                        + ">>> Sadness Site, o Guardião da Melancolia. <<<\n"
+                        + "Duas cabeças, um único coração pesado.\n"
+                        + "Aqueles que não confrontam a tristeza em si mesmos jamais avançam.\n");
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
@@ -764,13 +897,15 @@ public class ParadoUXo {
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
 
-
-                intervaloCurto();
+                intervaloCurto(); 
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 intervaloCurto();
                 darkInterface();
-                coletarItens();
+                DI(item1);
+                IO(item2);
+                GF(item3);
+                SS(item4);
                 emocoesUserX();
                 String[] emocao = emocoesUserX();
                 relatorioEmocoes(emocao);
