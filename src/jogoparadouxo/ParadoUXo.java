@@ -711,9 +711,9 @@ public class ParadoUXo {
     
 
     }
-    static void finalDaLuta(int acertos, String[] emocoes) {
+    static void finalDaHistoria(int acertos, String[] emocoes) {
     System.out.println("\n=== RESULTADO DA BATALHA ===");
-
+  
     if (acertos >= 4) {
         System.out.println("\nVocê derrotou o Mestre do Conhecimento!");
     } else {
@@ -935,7 +935,13 @@ public class ParadoUXo {
                 String[] emocao = emocoesUserX();
                 relatorioEmocoes(emocao);
                 infinittusOptions();
-
+              
+                 lutaFinal();
+                
+                 relatorioEmocoes(emocao);
+                 int acertos = 3;
+                 finalDaHistoria(acertos, emocao);
+                 
             }
         }
     }
