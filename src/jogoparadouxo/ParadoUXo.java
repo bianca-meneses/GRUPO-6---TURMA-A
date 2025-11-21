@@ -708,8 +708,33 @@ public class ParadoUXo {
             contadorEmocoes++;
         }
     }
+    
 
     }
+    static void finalDaLuta(int acertos, String[] emocoes) {
+    System.out.println("\n=== RESULTADO DA BATALHA ===");
+
+    if (acertos >= 4) {
+        System.out.println("\nVocê derrotou o Mestre do Conhecimento!");
+    } else {
+        System.out.println("\nO Mestre do Conhecimento o domina e te derruba ao chão...");
+    }
+
+    System.out.println("\n=== Emoções sentidas na batalha ===");
+    for (String e : emocoes) {
+        if (e != null) System.out.println("- " + e);
+    }
+
+    System.out.println("\n=== DESFECHO ===\n");
+
+    System.out.println("A luz ao redor explodiu. Runas se acenderam em volta de UserX...");
+    System.out.println("Seu corpo ardia enquanto símbolos de poder surgiam sobre sua pele.");
+    System.out.println("Ele compreendeu o verdadeiro significado do conhecimento.");
+    System.out.println("— Agora você sabe o que é ser o Mestre do Conhecimento — disse o velho.");
+    System.out.println("E seu corpo se desfez em poeira dourada.");
+    System.out.println("UserX retornou à estrada, mas agora transformado.");
+    System.out.println("Nascia ali o novo Mestre do Conhecimento.");
+}
     
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
