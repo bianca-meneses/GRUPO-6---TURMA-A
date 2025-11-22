@@ -589,7 +589,7 @@ public class ParadoUXo {
         intervaloCurto();
         System.out.println("Kauane Mineiro Coimbra");
     }
-    static void lutaFinal() {
+   static int lutaFinal() {
     Scanner input = new Scanner(System.in);
     Random random = new Random();
 
@@ -599,9 +599,14 @@ public class ParadoUXo {
 
     System.out.println("\n=== A CHEGADA DO MESTRE DO CONHECIMENTO ===\n");
     System.out.println("À sua frente, o último inimigo o aguardava.");
-    System.out.println("O Mestre do Conhecimento levitava, envolto por um manto vivo.");
-    System.out.println("— Parabéns por chegar até aqui, garoto. É hora de provar que é digno.");
+    System.out.println("O mesmo senhor da carruagem agora flutuava a poucos centímetros do chão");
+        System.out.println("envolto por um manto que se movia como se respirasse. Seu sorriso enigmático permanecia");
+        System.out.println("e sob o tecido, as feições revelavam-se, olhos brilhando em amarelo intenso");
+        System.out.println("veios de luz e runas se espalhando por seu rosto e braços, pulsando com a vida própria");
+        System.out.println("e sua presença fazia o ar vibrar.");
+    System.out.println("— Parabéns por chegar até aqui, garoto. É hora de provar que é digno. - A voz ecoou em todos os cantos da sala.");
     System.out.println("O chão tremeu enquanto ele ergueu o bastão.\n");
+        System.out.println("- Derrote-me, me supere, e então assuma o meu lugar como Mestre do Conhecimento.");
 
     // Perguntas serão sorteadas
     int acertos = 0;
@@ -614,87 +619,87 @@ public class ParadoUXo {
         switch (pergunta) {
             case 1:
                 System.out.println("Na jornada do usuário, o que caracteriza o momento de 'descoberta'?");
-                System.out.println("A) Decidiu comprar");
-                System.out.println("B) Contato direto com o produto");
-                System.out.println("C) Identifica um problema e busca soluções");
-                System.out.println("D) Abandona a jornada");
+                System.out.println("A) Quando o usuário já decidiu comprar e busca uma opção confiável");
+                System.out.println("B) Quando o usuário entra em contato direto com o produto ou serviço");
+                System.out.println("C) Quando o usuário identifica uma necessidade ou problema e busca soluções");
+                System.out.println("D) Quando o usuário abandona a jornada por falta de interesse.");
                 System.out.print("Resposta: ");
                 char r1 = input.next().toUpperCase().charAt(0);
                 if (r1 == 'C') acertos++;
                 break;
 
             case 2:
-                System.out.println("Qual é um ponto de contato digital indireto?");
-                System.out.println("A) Chat da empresa");
-                System.out.println("B) Publicação do cliente sobre a marca");
-                System.out.println("C) Avaliação em site de review");
-                System.out.println("D) Página do produto");
+                System.out.println("Em relação aos pontos de contato(touchpoints), qual das opções de representa um ponto de contato digital indireto?");
+                System.out.println("A) Atendimento via chat no site da empresa");
+                System.out.println("B) Publicação de um cliente sobre a marca em redes sociais");
+                System.out.println("C) Avaliação da empresa feita por terceiros em sites de review");
+                System.out.println("D) Página do produto no e-commerce oficial.");
                 System.out.print("Resposta: ");
                 char r2 = input.next().toUpperCase().charAt(0);
                 if (r2 == 'C') acertos++;
                 break;
 
             case 3:
-                System.out.println("Objetivo da análise de touchpoints:");
-                System.out.println("A) Aumentar etapas");
-                System.out.println("B) Reduzir custos de marketing");
-                System.out.println("C) Melhorar a experiência do usuário");
-                System.out.println("D) Criar métricas de vendas");
+                System.out.println("Qual das opções representa um dos principais objetivos da análise de pontos de contato na jornada do usuário?");
+                System.out.println("A) Aumentar o número de etapas da jornada para fidelizar o usuário");
+                System.out.println("B) Reduzir os custos de publicidade com base em dados de marketing");
+                System.out.println("C) Identificar oportunidades de melhorar a experiência do usuário");
+                System.out.println("D) Fornecer métricas financeiras para o setor de vendas");
                 System.out.print("Resposta: ");
                 char r3 = input.next().toUpperCase().charAt(0);
                 if (r3 == 'C') acertos++;
                 break;
 
             case 4:
-                System.out.println("Boa prática de usabilidade:");
-                System.out.println("A) Cores vibrantes em tudo");
-                System.out.println("B) Consistência visual");
-                System.out.println("C) Todas informações em 1 página");
-                System.out.println("D) Linguagem técnica");
+                System.out.println("O que é considerado uma boa prática no design de interface para promover usabilidade ?");
+                System.out.println("A) Utilizar cores vibrantes em todas as áreas da tela para chamar atenção");
+                System.out.println("B) Garantir consistência nos elementos visuais e interação.");
+                System.out.println("C) Exibir todas as informações possíveis em uma única página para facilitar o acesso.");
+                System.out.println("D) Priorizar o uso de linguagem técnica para aumentar a credibilidade");
                 System.out.print("Resposta: ");
                 char r4 = input.next().toUpperCase().charAt(0);
                 if (r4 == 'B') acertos++;
                 break;
 
             case 5:
-                System.out.println("Por que emoções importam na experiência digital?");
-                System.out.println("A) Usuários emocionais evitam apps");
-                System.out.println("B) Emoções negativas aumentam tempo");
-                System.out.println("C) Emoções influenciam valor e confiança");
-                System.out.println("D) Emoções não interferem");
+                System.out.println("Por que é importante considerar as emoções do usuário no design de uma experiência digital?");
+                System.out.println("A) Porque usuários emocionis tendem a evitar interações digitais");
+                System.out.println("B) Porque emoções negativas aumentam tempo de permanência em uma plataforma");
+                System.out.println("C) Porque emoções influenciam diretamente a percepção de valor, confiança e satisfação com o produto ou serviço");
+                System.out.println("D) Porque a emoção do usuário não interfere na interação com intefaces digitais.");
                 System.out.print("Resposta: ");
                 char r5 = input.next().toUpperCase().charAt(0);
                 if (r5 == 'C') acertos++;
                 break;
 
             case 6:
-                System.out.println("Diferença entre usabilidade e UX:");
-                System.out.println("A) Usabilidade é subjetiva");
-                System.out.println("B) UX é só design gráfico");
-                System.out.println("C) Usabilidade é emocional");
-                System.out.println("D) Usabilidade = eficiência; UX = emoções + contexto");
+                System.out.println("Qual a diferença entre usabilidade e experiencia do usuario (UX) ?:");
+                System.out.println("A) Usabilidade é subjetiva, enquanto UX é mensurável");
+                System.out.println("B) UX esta relacionada apenas ao design gráfico, enquanto usabilidade é mais ampla");
+                System.out.println("C) Usabilidade considera apenas o aspecto emocional do usúario");
+                System.out.println("D) Usabilidade foca na eficiência da interação; UX inclui também emoções, percepções e contexto");
                 System.out.print("Resposta: ");
                 char r6 = input.next().toUpperCase().charAt(0);
                 if (r6 == 'D') acertos++;
                 break;
 
             case 7:
-                System.out.println("Barreira de usabilidade:");
-                System.out.println("A) Ícones universais");
-                System.out.println("B) Textos longos e linguagem técnica");
-                System.out.println("C) Feedback imediato");
-                System.out.println("D) Botões bem espaçados");
+                System.out.println("Qual dos itens abaixo pode ser considerado uma barreira de usabilidade em uma interface digital ?");
+                System.out.println("A) Ícones com significados universais e bem posicionados");
+                System.out.println("B) Textos muito longos e linguagem técnica demais");
+                System.out.println("C) Feedback visual imediato após uma ação");
+                System.out.println("D) Botões com espaçamento adequado para toque em dispositivos móveis.");
                 System.out.print("Resposta: ");
                 char r7 = input.next().toUpperCase().charAt(0);
                 if (r7 == 'B') acertos++;
                 break;
 
             case 8:
-                System.out.println("O que define o mapa da jornada do usuário?");
-                System.out.println("A) Funil de vendas");
-                System.out.println("B) Etapas da interação com uma marca");
-                System.out.println("C) Relatório de visitas");
-                System.out.println("D) Organograma");
+                System.out.println("O que melhor define o mapa da jornada do usuário?");
+                System.out.println("A) Uma representação gráfica do funil de vendas");
+                System.out.println("B) Uma visualizaçõa das etapas percorridas pelo usúario em sua interação com uma marca");
+                System.out.println("C) Um relatório estatístico de visitas ao site da empresa");
+                System.out.println("D) Um organograma de cargos responsáveis pela experiência do cliente");
                 System.out.print("Resposta: ");
                 char r8 = input.next().toUpperCase().charAt(0);
                 if (r8 == 'B') acertos++;
@@ -707,7 +712,10 @@ public class ParadoUXo {
             emocoes[contadorEmocoes] = opcoes[random.nextInt(opcoes.length)];
             contadorEmocoes++;
         }
+        
+        
     }
+    return acertos;
     
 
     }
