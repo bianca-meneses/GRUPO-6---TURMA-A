@@ -574,7 +574,174 @@ public class ParadoUXo {
         return vida;
     }
 
-    static void creditosFinais() { // Imprime os créditos finais
+     static int lutaFinal() {
+        Scanner input = new Scanner(System.in);
+        int vida = 100;
+        int theMasterOfKnowledgeHP = 100;
+        String alternativas;
+
+
+   
+         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
+
+     do {
+            int perguntas = perguntas();
+            System.out.println(">>> THE MASTER OF KNOWLEDGE <<<\n" + "HP: " + vida + "%\n");
+            switch (perguntas) {
+            case 1:
+                System.out.println("Na jornada do usuário, o que caracteriza o momento de 'descoberta'?");
+                System.out.println("A) Quando o usuário já decidiu comprar e busca uma opção confiável");
+                System.out.println("B) Quando o usuário entra em contato direto com o produto ou serviço");
+                System.out.println("C) Quando o usuário identifica uma necessidade ou problema e busca soluções");
+                System.out.println("D) Quando o usuário abandona a jornada por falta de interesse.");
+                System.out.print("Resposta: ");
+                alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("C")) {
+                        System.out.println("Resposta Correta! ");
+                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+
+            case 2:
+                System.out.println("Em relação aos pontos de contato(touchpoints), qual das opções de representa um ponto de contato digital indireto?");
+                System.out.println("A) Atendimento via chat no site da empresa");
+                System.out.println("B) Publicação de um cliente sobre a marca em redes sociais");
+                System.out.println("C) Avaliação da empresa feita por terceiros em sites de review");
+                System.out.println("D) Página do produto no e-commerce oficial.");
+                System.out.print("Resposta: ");
+                 alternativas = input.next();
+                 if (alternativas.equalsIgnoreCase("C")) {
+                        System.out.println("Resposta Correta! ");
+                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+
+            case 3:
+                System.out.println("Qual das opções representa um dos principais objetivos da análise de pontos de contato na jornada do usuário?");
+                System.out.println("A) Aumentar o número de etapas da jornada para fidelizar o usuário");
+                System.out.println("B) Reduzir os custos de publicidade com base em dados de marketing");
+                System.out.println("C) Identificar oportunidades de melhorar a experiência do usuário");
+                System.out.println("D) Fornecer métricas financeiras para o setor de vendas");
+                System.out.print("Resposta: ");
+                 alternativas = input.next();
+                 if (alternativas.equalsIgnoreCase("C")) {
+                        System.out.println("Resposta Correta! ");
+                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+            case 4:
+                System.out.println("O que é considerado uma boa prática no design de interface para promover usabilidade ?");
+                System.out.println("A) Utilizar cores vibrantes em todas as áreas da tela para chamar atenção");
+                System.out.println("B) Garantir consistência nos elementos visuais e interação.");
+                System.out.println("C) Exibir todas as informações possíveis em uma única página para facilitar o acesso.");
+                System.out.println("D) Priorizar o uso de linguagem técnica para aumentar a credibilidade");
+                System.out.print("Resposta: ");
+                 alternativas = input.next();
+                if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta! ");
+                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+
+            case 5:
+                System.out.println("Por que é importante considerar as emoções do usuário no design de uma experiência digital?");
+                System.out.println("A) Porque usuários emocionis tendem a evitar interações digitais");
+                System.out.println("B) Porque emoções negativas aumentam tempo de permanência em uma plataforma");
+                System.out.println("C) Porque emoções influenciam diretamente a percepção de valor, confiança e satisfação com o produto ou serviço");
+                System.out.println("D) Porque a emoção do usuário não interfere na interação com intefaces digitais.");
+                System.out.print("Resposta: ");
+                 alternativas = input.next();
+                 if (alternativas.equalsIgnoreCase("C")) {
+                        System.out.println("Resposta Correta! ");
+                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+
+            case 6:
+                System.out.println("Qual a diferença entre usabilidade e experiencia do usuario (UX) ?:");
+                System.out.println("A) Usabilidade é subjetiva, enquanto UX é mensurável");
+                System.out.println("B) UX esta relacionada apenas ao design gráfico, enquanto usabilidade é mais ampla");
+                System.out.println("C) Usabilidade considera apenas o aspecto emocional do usúario");
+                System.out.println("D) Usabilidade foca na eficiência da interação; UX inclui também emoções, percepções e contexto");
+                System.out.print("Resposta: ");
+                 alternativas = input.next();
+                 if (alternativas.equalsIgnoreCase("D")) {
+                        System.out.println("Resposta Correta! ");
+                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+
+            case 7:
+                System.out.println("Qual dos itens abaixo pode ser considerado uma barreira de usabilidade em uma interface digital ?");
+                System.out.println("A) Ícones com significados universais e bem posicionados");
+                System.out.println("B) Textos muito longos e linguagem técnica demais");
+                System.out.println("C) Feedback visual imediato após uma ação");
+                System.out.println("D) Botões com espaçamento adequado para toque em dispositivos móveis.");
+                System.out.print("Resposta: ");
+                 alternativas = input.next();
+                 if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta! ");
+                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+
+            case 8:
+                System.out.println("O que melhor define o mapa da jornada do usuário?");
+                System.out.println("A) Uma representação gráfica do funil de vendas");
+                System.out.println("B) Uma visualizaçõa das etapas percorridas pelo usúario em sua interação com uma marca");
+                System.out.println("C) Um relatório estatístico de visitas ao site da empresa");
+                System.out.println("D) Um organograma de cargos responsáveis pela experiência do cliente");
+                System.out.print("Resposta: ");
+                 alternativas = input.next();
+                if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta! ");
+                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!\n");
+                        vida = vida - 50;
+                    }
+                    break;
+            }
+        }  while (theMasterOfKnowledgeHP > 0 && vida > 0);
+
+        if (vida <= 0) {
+            System.out.println("\nUserX\n"
+                    + "HP: " + vida + "%\n");
+            intervaloCurto();
+            System.out.println("GameOver\n");
+            intervaloLongo();
+            créditosFinais();
+        } else {
+            System.out.println("Você derrotou The Master Of Knowledge!!");
+            intervaloCurto();
+            emocoesUserX();
+            SS(item4);
+        }
+        return vida;
+
+     }
+      static void creditosFinais() { // Imprime os créditos finais
         System.out.println("Obrigado por jogar ParadoUXo!\n");
         intervaloCurto();
         System.out.println("Grupo 6\n");
@@ -588,160 +755,15 @@ public class ParadoUXo {
         System.out.println("Davi Teixeira da Silva \n");
         intervaloCurto();
         System.out.println("Kauane Mineiro Coimbra");
-    }
-   static int lutaFinal() {
-    Scanner input = new Scanner(System.in);
-    Random random = new Random();
-
-    // Emoções sentidas pelo jogador
-    String[] emocoes = new String[5];
-    int contadorEmocoes = 0;
-
-    System.out.println("\n=== A CHEGADA DO MESTRE DO CONHECIMENTO ===\n");
-    System.out.println("À sua frente, o último inimigo o aguardava.");
-    System.out.println("O mesmo senhor da carruagem agora flutuava a poucos centímetros do chão");
-        System.out.println("envolto por um manto que se movia como se respirasse. Seu sorriso enigmático permanecia");
-        System.out.println("e sob o tecido, as feições revelavam-se, olhos brilhando em amarelo intenso");
-        System.out.println("veios de luz e runas se espalhando por seu rosto e braços, pulsando com a vida própria");
-        System.out.println("e sua presença fazia o ar vibrar.");
-    System.out.println("— Parabéns por chegar até aqui, garoto. É hora de provar que é digno. - A voz ecoou em todos os cantos da sala.");
-    System.out.println("O chão tremeu enquanto ele ergueu o bastão.\n");
-        System.out.println("- Derrote-me, me supere, e então assuma o meu lugar como Mestre do Conhecimento.");
-
-    // Perguntas serão sorteadas
-    int acertos = 0;
-    int totalPerguntas = 5;
-
-    for (int i = 0; i < totalPerguntas; i++) {
-        int pergunta = random.nextInt(8) + 1; // sorteia de 1 a 8
-        System.out.println("\nPergunta " + (i + 1) + ":");
-
-        switch (pergunta) {
-            case 1:
-                System.out.println("Na jornada do usuário, o que caracteriza o momento de 'descoberta'?");
-                System.out.println("A) Quando o usuário já decidiu comprar e busca uma opção confiável");
-                System.out.println("B) Quando o usuário entra em contato direto com o produto ou serviço");
-                System.out.println("C) Quando o usuário identifica uma necessidade ou problema e busca soluções");
-                System.out.println("D) Quando o usuário abandona a jornada por falta de interesse.");
-                System.out.print("Resposta: ");
-                char r1 = input.next().toUpperCase().charAt(0);
-                if (r1 == 'C') acertos++;
-                break;
-
-            case 2:
-                System.out.println("Em relação aos pontos de contato(touchpoints), qual das opções de representa um ponto de contato digital indireto?");
-                System.out.println("A) Atendimento via chat no site da empresa");
-                System.out.println("B) Publicação de um cliente sobre a marca em redes sociais");
-                System.out.println("C) Avaliação da empresa feita por terceiros em sites de review");
-                System.out.println("D) Página do produto no e-commerce oficial.");
-                System.out.print("Resposta: ");
-                char r2 = input.next().toUpperCase().charAt(0);
-                if (r2 == 'C') acertos++;
-                break;
-
-            case 3:
-                System.out.println("Qual das opções representa um dos principais objetivos da análise de pontos de contato na jornada do usuário?");
-                System.out.println("A) Aumentar o número de etapas da jornada para fidelizar o usuário");
-                System.out.println("B) Reduzir os custos de publicidade com base em dados de marketing");
-                System.out.println("C) Identificar oportunidades de melhorar a experiência do usuário");
-                System.out.println("D) Fornecer métricas financeiras para o setor de vendas");
-                System.out.print("Resposta: ");
-                char r3 = input.next().toUpperCase().charAt(0);
-                if (r3 == 'C') acertos++;
-                break;
-
-            case 4:
-                System.out.println("O que é considerado uma boa prática no design de interface para promover usabilidade ?");
-                System.out.println("A) Utilizar cores vibrantes em todas as áreas da tela para chamar atenção");
-                System.out.println("B) Garantir consistência nos elementos visuais e interação.");
-                System.out.println("C) Exibir todas as informações possíveis em uma única página para facilitar o acesso.");
-                System.out.println("D) Priorizar o uso de linguagem técnica para aumentar a credibilidade");
-                System.out.print("Resposta: ");
-                char r4 = input.next().toUpperCase().charAt(0);
-                if (r4 == 'B') acertos++;
-                break;
-
-            case 5:
-                System.out.println("Por que é importante considerar as emoções do usuário no design de uma experiência digital?");
-                System.out.println("A) Porque usuários emocionis tendem a evitar interações digitais");
-                System.out.println("B) Porque emoções negativas aumentam tempo de permanência em uma plataforma");
-                System.out.println("C) Porque emoções influenciam diretamente a percepção de valor, confiança e satisfação com o produto ou serviço");
-                System.out.println("D) Porque a emoção do usuário não interfere na interação com intefaces digitais.");
-                System.out.print("Resposta: ");
-                char r5 = input.next().toUpperCase().charAt(0);
-                if (r5 == 'C') acertos++;
-                break;
-
-            case 6:
-                System.out.println("Qual a diferença entre usabilidade e experiencia do usuario (UX) ?:");
-                System.out.println("A) Usabilidade é subjetiva, enquanto UX é mensurável");
-                System.out.println("B) UX esta relacionada apenas ao design gráfico, enquanto usabilidade é mais ampla");
-                System.out.println("C) Usabilidade considera apenas o aspecto emocional do usúario");
-                System.out.println("D) Usabilidade foca na eficiência da interação; UX inclui também emoções, percepções e contexto");
-                System.out.print("Resposta: ");
-                char r6 = input.next().toUpperCase().charAt(0);
-                if (r6 == 'D') acertos++;
-                break;
-
-            case 7:
-                System.out.println("Qual dos itens abaixo pode ser considerado uma barreira de usabilidade em uma interface digital ?");
-                System.out.println("A) Ícones com significados universais e bem posicionados");
-                System.out.println("B) Textos muito longos e linguagem técnica demais");
-                System.out.println("C) Feedback visual imediato após uma ação");
-                System.out.println("D) Botões com espaçamento adequado para toque em dispositivos móveis.");
-                System.out.print("Resposta: ");
-                char r7 = input.next().toUpperCase().charAt(0);
-                if (r7 == 'B') acertos++;
-                break;
-
-            case 8:
-                System.out.println("O que melhor define o mapa da jornada do usuário?");
-                System.out.println("A) Uma representação gráfica do funil de vendas");
-                System.out.println("B) Uma visualizaçõa das etapas percorridas pelo usúario em sua interação com uma marca");
-                System.out.println("C) Um relatório estatístico de visitas ao site da empresa");
-                System.out.println("D) Um organograma de cargos responsáveis pela experiência do cliente");
-                System.out.print("Resposta: ");
-                char r8 = input.next().toUpperCase().charAt(0);
-                if (r8 == 'B') acertos++;
-                break;
-        }
-
-        // Registrar emoção aleatória
-        if (contadorEmocoes < emocoes.length) {
-            String[] opcoes = {"medo", "determinação", "esperança", "raiva", "curiosidade"};
-            emocoes[contadorEmocoes] = opcoes[random.nextInt(opcoes.length)];
-            contadorEmocoes++;
-        }
-        
-        
-    }
-    return acertos;
-    
-
-    }
+       
+       menu();
+              
+      }
+      
     static void finalDaHistoria(int acertos, String[] emocoes) {
     System.out.println("\n=== RESULTADO DA BATALHA ===");
   
-    if (acertos >= 4) {
-        System.out.println("\nVocê derrotou o Mestre do Conhecimento!");
-    } else {
-        System.out.println("\nO Mestre do Conhecimento o domina e te derruba ao chão...");
-    }
-
-    System.out.println("\n=== Emoções sentidas na batalha ===");
-    for (String e : emocoes) {
-        if (e != null) System.out.println("- " + e);
-    }
-
-    System.out.println("\n=== DESFECHO ===\n");
-
-    System.out.println("A luz ao redor explodiu. Runas se acenderam em volta de UserX...");
-    System.out.println("Seu corpo ardia enquanto símbolos de poder surgiam sobre sua pele.");
-    System.out.println("Ele compreendeu o verdadeiro significado do conhecimento.");
-    System.out.println("— Agora você sabe o que é ser o Mestre do Conhecimento — disse o velho.");
-    System.out.println("E seu corpo se desfez em poeira dourada.");
-    System.out.println("UserX retornou à estrada, mas agora transformado.");
-    System.out.println("Nascia ali o novo Mestre do Conhecimento.");
+  
 }
     
 
@@ -929,12 +951,40 @@ public class ParadoUXo {
 
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
+                 System.out.println("\n=== A CHEGADA DO MESTRE DO CONHECIMENTO ===\n");
+                 System.out.println("À sua frente, o último inimigo o aguardava.");
+                 intervaloCurto();
+                 System.out.println("O mesmo senhor da carruagem agora flutuava a poucos centímetros do chão");
+                 System.out.println("envolto por um manto que se movia como se respirasse. Seu sorriso enigmático permanecia");
+                 System.out.println("e sob o tecido, as feições revelavam-se, olhos brilhando em amarelo intenso");
+                 System.out.println("veios de luz e runas se espalhando por seu rosto e braços, pulsando com a vida própria");
+                 System.out.println("e sua presença fazia o ar vibrar.");
+                 intervaloCurto();
+                 System.out.println("— Parabéns por chegar até aqui, garoto. É hora de provar que é digno. - A voz ecoou em todos os cantos da sala.");
+                 System.out.println("O chão tremeu enquanto ele ergueu o bastão.\n");
+                 System.out.println("- Derrote-me, me supere, e então assuma o meu lugar como Mestre do Conhecimento.");
+                  
+                intervaloCurto();
+                System.out.println("Pressione 1 para continuar");
+                botãoDeSkip();
+                lutaFinal();
+                System.out.println("Pressione 1 para continuar");
+                botãoDeSkip();
+                
+                 System.out.println("A luz ao redor explodiu. Runas se acenderam em volta de UserX...");
+                 System.out.println("Seu corpo ardia enquanto símbolos de poder surgiam sobre sua pele.");
+                 System.out.println("Ele compreendeu o verdadeiro significado do conhecimento.");
+                System.out.println("— Agora você sabe o que é ser o Mestre do Conhecimento — disse o velho.");
+                System.out.println("E seu corpo se desfez em poeira dourada.");
+                 System.out.println("UserX retornou à estrada, mas agora transformado.");
+                 System.out.println("Nascia ali o novo Mestre do Conhecimento.");
 
+                 
                 intervaloCurto(); 
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 intervaloCurto();
-                darkInterface();
+                
                 DI(item1);
                 IO(item2);
                 GF(item3);
@@ -942,13 +992,10 @@ public class ParadoUXo {
                 emocoesUserX();
                 String[] emocao = emocoesUserX();
                 relatorioEmocoes(emocao);
-                infinittusOptions();
+               
               
-                 lutaFinal();
-                
-                 relatorioEmocoes(emocao);
-                 int acertos = 3;
-                 finalDaHistoria(acertos, emocao);
+                 
+              
                  
             }
         }
