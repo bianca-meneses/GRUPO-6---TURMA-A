@@ -198,7 +198,7 @@ public class ParadoUXo {
 
         System.out.println("Em uma única palavra, o que você sentiu durante a batalha?");
 
-        for (int i = 0; i < emocao.length; i++) {
+        for (int i = 0; i <= 1; i++) {
             emocao[i] = input.nextLine();
 
         }
@@ -1043,4 +1043,5 @@ public class ParadoUXo {
             }
         }
     }
+
 }
