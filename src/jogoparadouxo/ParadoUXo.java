@@ -1,8 +1,5 @@
 package jogoparadouxo;
-
-
-import java.util.*; 
-
+import java.util.*;
 public class ParadoUXo { 
 
     static String item1 = "ARCO E FLECHA COM CHAMAS";
@@ -12,7 +9,18 @@ public class ParadoUXo {
 
     static int botãoDeSkip() { // Use quando precisar inserir um botão de "Próximo".
         Scanner input = new Scanner(System.in);
-        int skip = input.nextInt();
+        int skip = 0;
+        do{
+            String skipString = input.next();
+            switch (skipString) {
+                case "1":
+                    skip = 1;
+                    break;
+                default:
+                    skip = -1;
+                    System.out.println("Caractere inválido. Tente novamente.");
+            }
+        }while (skip < 0);
         return skip;
     }
 
@@ -22,49 +30,84 @@ public class ParadoUXo {
         return aleatório;
     }
 
-    static long intervaloCurto() { // Use para gerar um delay de 2 segundos entre comandos.
+    static void intervaloCurto() { // Use para gerar um delay de 2 segundos entre comandos.
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-        return System.currentTimeMillis();
     }
 
-    static long intervaloLongo() { //Use para gerar um delay de 5 segundos entre comandos.
+    static void intervaloLongo() { //Use para gerar um delay de 5 segundos entre comandos.
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-        return System.currentTimeMillis();
     }
 
-    static int input() {
+    static int opções() {
         Scanner input = new Scanner(System.in);
-        int opção = input.nextInt();
-        return opção;
+        int opções = 0;
+        do {
+            String opçõesString = input.next();
+            switch (opçõesString) {
+                case "1":
+                    opções = 1;
+                    break;
+                case "2":
+                    opções = 2;
+                    break;
+                case "3":
+                    opções = 3;
+                    break;
+                case "4":
+                    opções = 4;
+                    break;
+                case "5":
+                    opções = 5;
+                    break;
+                default:
+                    opções = -1;
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        } while (opções < 0);
+        return opções;
     }
 
     static int aceitarArtefato() {
-        System.out.println("Aceitar artefato?\n"
-                + "1 - Sim\n"
-                + "2 - Não\n");
-        intervaloLongo();
-        int escolha = input();
+        Scanner input = new Scanner(System.in);
+        int escolha = 0;
+        do {
+            System.out.println("Aceitar artefato?\n"
+                    + "1 - Sim\n"
+                    + "2 - Não\n");
+            String escolhaString = input.next();
+            switch (escolhaString) {
+                case "1":
+                    escolha = 1;
+                    break;
+                case "2":
+                    escolha = 2;
+                    break;
+                default:
+                    escolha = -1;
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        }while (escolha < 0);
         return escolha;
     }
 
     static int menu() {
         int opcões;
         do {
-            System.out.println("\n ParadoUXo \n");
-            System.out.println("1 - Jogar");
-            System.out.println("2 - Instruções");
-            System.out.println("3 - História");
-            System.out.println("4 - Créditos");
-            System.out.println("5 - Sair");
-            opcões = input();
+            System.out.println("\n                                                                       PARADOUXO \n");
+            System.out.println("                                                                   1 -   Jogar");
+            System.out.println("                                                                   2 - Instruções");
+            System.out.println("                                                                   3 -  História");
+            System.out.println("                                                                   4 -  Créditos");
+            System.out.println("                                                                   5 -    Sair");
+            opcões = opções();
 
             switch (opcões) {
                 case 1:
