@@ -107,6 +107,21 @@ public class ParadoUXo {
         } while (laço < 0);
         return alternativas;
     }
+    static void créditosFinais() { // Imprime os créditos finais
+        System.out.println("Obrigado por jogar ParadoUXo!\n");
+        intervaloCurto();
+        System.out.println("Grupo 6\n");
+        intervaloCurto();
+        System.out.println("Barbara de Oliveira Silva \n");
+        intervaloCurto();
+        System.out.println("Bianca Meneses \n");
+        intervaloCurto();
+        System.out.println("Camilly Quintino Ramos \n");
+        intervaloCurto();
+        System.out.println("Davi Teixeira da Silva \n");
+        intervaloCurto();
+        System.out.println("Kauane Mineiro Coimbra");
+    }
 
     static int aceitarArtefato() {
         Scanner input = new Scanner(System.in);
@@ -267,7 +282,6 @@ public class ParadoUXo {
         Scanner input = new Scanner(System.in);
         int vida = 100;
         int dark_interfaceHP = 100;
-        String alternativas;
 
         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
 
@@ -284,12 +298,13 @@ public class ParadoUXo {
                             + "B) Uma técnica de marketing usada apenas para atrair novos clientes.\n"
                             + "C) O caminho que o usuário percorre desde o primeiro contato com uma marca até a concretização de uma ação (como a compra).\n"
                             + "D) Um relatório financeiro que avalia o comportamento do consumidor.\n");
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("C")) {
+
+                    if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta correta!");
                         dark_interfaceHP = dark_interfaceHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!");
+                        System.out.println("Resposta incorreta!" +
+                                "Dica: “Foque em identificar todos os momentos em que o usuário pensa, sente e decide”");
                         vida = vida - 50;
                     }
                     break;
@@ -300,12 +315,13 @@ public class ParadoUXo {
                             + "B) Reduzir os custos operacionais da empresa a qualquer custo.\n"
                             + "C) Compreender e otimizar a experiência do usuário em cada etapa de interação com a marca.\n"
                             + "D) Impedir que o cliente tenha contato com concorrentes.\n");
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("C")) {
+
+                    if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta correta!\n");
                         dark_interfaceHP = dark_interfaceHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!" +
+                                "Dica: “Mapeie onde o usuário encontra fricção e elimine esses pontos.”");
                         vida = vida - 50;
                     }
                     break;
@@ -316,12 +332,13 @@ public class ParadoUXo {
                             + "B) A interface se adapta mal a dispositivos móveis, o que exige o uso de desktop.\n"
                             + "C) A interface é responsiva e se adapta bem a dispositivos móveis, facilitando a navegação.\n"
                             + "D) A interface possui poucos recursos visuais, o que evita distrações, mesmo que sacrifique a usabilidade.\n");
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("C")) {
+
+                    if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta correta!\n");
                         dark_interfaceHP = dark_interfaceHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!" +
+                                "Dica: “Priorize acessibilidade: o usuário precisa navegar bem em qualquer dispositivo.”");
                         vida = vida - 50;
                     }
                     break;
@@ -332,13 +349,14 @@ public class ParadoUXo {
                             + "B) Utilizar textos técnicos e complexos para mostrar profissionalismo.\n"
                             + "C) Manter uma estrutura visual simples, com botões claros e navegação intuitiva.\n"
                             + "D) Esconder funcionalidades para tornar a interface mais “limpa”.\n");
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("C")) {
+
+                    if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta correta!\n");
                         dark_interfaceHP = dark_interfaceHP - 50;
 
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!" +
+                                "Dica: “Use clareza como regra: se o usuário precisar pensar demais, algo está errado.”");
                         vida = vida - 50;
                     }
                     break;
@@ -360,6 +378,7 @@ public class ParadoUXo {
         }
         return vida;
     }
+
 
     static int infinittusOptions() {
         Scanner input = new Scanner(System.in);
@@ -552,21 +571,7 @@ public class ParadoUXo {
         return vida;
     }
 
-    static void créditosFinais() { // Imprime os créditos finais
-        System.out.println("Obrigado por jogar ParadoUXo!\n");
-        intervaloCurto();
-        System.out.println("Grupo 6\n");
-        intervaloCurto();
-        System.out.println("Barbara de Oliveira Silva \n");
-        intervaloCurto();
-        System.out.println("Bianca Meneses \n");
-        intervaloCurto();
-        System.out.println("Camilly Quintino Ramos \n");
-        intervaloCurto();
-        System.out.println("Davi Teixeira da Silva \n");
-        intervaloCurto();
-        System.out.println("Kauane Mineiro Coimbra");
-    }
+
 
     static int sadnessSite() {
         Scanner input = new Scanner(System.in);
