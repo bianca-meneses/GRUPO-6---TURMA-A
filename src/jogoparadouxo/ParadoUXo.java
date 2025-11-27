@@ -489,70 +489,80 @@ public class ParadoUXo {
         String alternativas;
         utilizandoItem();
         System.out.println("Responda as questões corretamente para infringir o seu inimigo");
+
         do {
             int perguntas = perguntas();
-            System.out.println(">>> GIANT FEAR <<<\n" + "HP: " + vida + "%\n");
+
+            System.out.println(">>> GIANT FEAR <<<\n"
+                    + "HP: " + giant_fearHP + "%");
+            System.out.println("\nUserX\n"
+                    + "HP: " + vida + "%\n");
+
             switch (perguntas) {
                 case 1:
                     System.out.println("Como uma boa jornada do usuário pode ajudar a diminuir o medo de tomar decisões erradas em um site ou aplicativo?\n"
-                            + "A) Criando telas com poucas informações, para o usuário não pensar demais.\n"
+                            + " A) Criando telas com poucas informações, para o usuário não pensar demais.\n"
                             + " B) Mostrando opções sem explicar o que cada uma faz.\n"
                             + " C) Oferecendo orientações claras, feedback em tempo real e segurança visual. \n"
                             + " D) Usando termos técnicos para mostrar autoridade.\n");
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("C")) {
+
+                    if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta Correta!\n");
                         giant_fearHP = giant_fearHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!\n"+
+                                "Dica: “Mostre sempre o próximo passo: orientação reduz medo e aumenta segurança.”");
                         vida = vida - 50;
                     }
                     break;
                 case 2:
                     System.out.println("O que pode transformar a ansiedade do usuário em confiança durante a jornada digital?\n"
-                            + "A) Design minimalista, sem explicações ou ajuda.\n"
+                            + " A) Design minimalista, sem explicações ou ajuda.\n"
                             + " B) Um fluxo claro, com etapas bem definidas, linguagem acessível e suporte disponível. \n"
                             + " C) Ofertas constantes para acelerar decisões.\n"
                             + " D) Formulários longos e complexos, para parecer mais completo.\n");
 
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("B")) {
+
+                    if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
                         giant_fearHP = giant_fearHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!\n"+
+                                "Dica: “Estruture o caminho: etapas claras quebram a ansiedade em partes manejáveis.”");
                         vida = vida - 50;
                     }
                     break;
                 case 3:
                     System.out.println("Qual elemento da experiência do usuário ajuda a transformar um medo inicial em um sentimento de conquista ou realização?\n"
-                            + "A) Fricções propositalmente criadas para filtrar usuários.\n"
+                            + " A) Fricções propositalmente criadas para filtrar usuários.\n"
                             + " B) Gamificação mal aplicada, com recompensas confusas.\n"
                             + " C) Jornadas intuitivas, com progressos visíveis e feedback positivo a cada etapa.\n"
                             + " D) Interfaces ocultas para não sobrecarregar a pessoa com informações.\n");
 
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("C")) {
+
+                    if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta Correta!\n");
                         giant_fearHP = giant_fearHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!\n"+
+                                "Dica: “Evidencie progresso: ver avanço transforma dúvida em motivação.”");
                         vida = vida - 50;
                     }
                     break;
                 case 4:
                     System.out.println("De que forma a jornada do usuário pode transformar uma ação temida (como uma compra ou envio de dados) em um momento de realização?\n"
-                            + "A) Garantindo clareza, controle e transparência em cada etapa da interação. \n"
+                            + " A) Garantindo clareza, controle e transparência em cada etapa da interação. \n"
                             + " B) Criando urgência com contagem regressiva e pressão.\n"
                             + " C) Limitando opções para acelerar a decisão.\n"
                             + " D) Escondendo detalhes do processo para não gerar dúvidas.\n");
 
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("A")) {
+
+                    if (alternativas().equalsIgnoreCase("A")) {
                         System.out.println("Resposta Correta!\n");
                         giant_fearHP = giant_fearHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!\n"+
+                                "Dica: “Transparência gera confiança: explique o que vai acontecer antes de acontecer.”");
                         vida = vida - 50;
                     }
                     break;
