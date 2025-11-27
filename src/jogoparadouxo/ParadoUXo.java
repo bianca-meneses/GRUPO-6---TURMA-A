@@ -1,16 +1,18 @@
 package jogoparadouxo;
+
 import java.util.*;
+
 public class ParadoUXo { 
 
     static String item1 = "ARCO E FLECHA COM CHAMAS";
     static String item2 = "POÇÃO DO CRESCIMENTO";
-    static String item3 = "POÇÃO DA EMPATIA E ESPADA DE PRATA";
+    static String item3 = "ESPADA DE PRATA";
     static String item4 = "CAPA DA INVISIBILIDADE";
 
     static int botãoDeSkip() { // Use quando precisar inserir um botão de "Próximo".
         Scanner input = new Scanner(System.in);
         int skip = 0;
-        do{
+        do {
             String skipString = input.next();
             switch (skipString) {
                 case "1":
@@ -20,7 +22,7 @@ public class ParadoUXo {
                     skip = -1;
                     System.out.println("Caractere inválido. Tente novamente.");
             }
-        }while (skip < 0);
+        } while (skip < 0);
         return skip;
     }
 
@@ -94,7 +96,7 @@ public class ParadoUXo {
                     escolha = -1;
                     System.out.println("Opção inválida. Tente novamente.");
             }
-        }while (escolha < 0);
+        } while (escolha < 0);
         return escolha;
     }
 
@@ -187,7 +189,18 @@ public class ParadoUXo {
         System.out.println("\n==== " + item4 + " ====");
     }
 
-    static String[] emocoesUserX() { // coleta as emoções que o jogador sentiu
+    static void utilizandoItem(){ 
+        String[] itens = {"\nARCO E FLECHA COM CHAMAS\n", "\nPOÇÃO DO CRESCIMENTO\n","\nESPADA DE PRATA\n", "\nCAPA DA INVISIBILIDADE\n"};
+
+        System.out.println("==== UTILIZANDO ITEM... ====");
+
+        Random random = new Random();
+        int item = random.nextInt(itens.length); 
+
+        System.out.println(itens[item]);
+    }
+
+    static String[] emocoesUserX() { // coleta as emoções que o jogador sentiu durante a batalha
 
         Scanner input = new Scanner(System.in);
 
@@ -322,7 +335,7 @@ public class ParadoUXo {
         int vida = 100;
         int infinittus_optionsHP = 100;
         String alternativas;
-
+        utilizandoItem();
         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
 
         do {
@@ -420,6 +433,7 @@ public class ParadoUXo {
         int vida = 100;
         int giant_fearHP = 100;
         String alternativas;
+        utilizandoItem();
         System.out.println("Responda as questões corretamente para infringir o seu inimigo");
         do {
             int perguntas = perguntas();
@@ -430,10 +444,10 @@ public class ParadoUXo {
                             + "A) Criando telas com poucas informações, para o usuário não pensar demais.\n"
                             + " B) Mostrando opções sem explicar o que cada uma faz.\n"
                             + " C) Oferecendo orientações claras, feedback em tempo real e segurança visual. \n"
-                            + " D) Usando termos técnicos para mostrar autoridade.");
+                            + " D) Usando termos técnicos para mostrar autoridade.\n");
                     alternativas = input.next();
                     if (alternativas.equalsIgnoreCase("C")) {
-                        System.out.println("Resposta Correta! ");
+                        System.out.println("Resposta Correta!\n");
                         giant_fearHP = giant_fearHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -445,11 +459,11 @@ public class ParadoUXo {
                             + "A) Design minimalista, sem explicações ou ajuda.\n"
                             + " B) Um fluxo claro, com etapas bem definidas, linguagem acessível e suporte disponível. \n"
                             + " C) Ofertas constantes para acelerar decisões.\n"
-                            + " D) Formulários longos e complexos, para parecer mais completo.");
+                            + " D) Formulários longos e complexos, para parecer mais completo.\n");
 
                     alternativas = input.next();
                     if (alternativas.equalsIgnoreCase("B")) {
-                        System.out.println("Resposta Correta! ");
+                        System.out.println("Resposta Correta!\n");
                         giant_fearHP = giant_fearHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -460,12 +474,12 @@ public class ParadoUXo {
                     System.out.println("Qual elemento da experiência do usuário ajuda a transformar um medo inicial em um sentimento de conquista ou realização?\n"
                             + "A) Fricções propositalmente criadas para filtrar usuários.\n"
                             + " B) Gamificação mal aplicada, com recompensas confusas.\n"
-                            + " C) Jornadas intuitivas, com progressos visíveis e feedback positivo a cada etapa. \n"
-                            + " D) Interfaces ocultas para não sobrecarregar a pessoa com informações.");
+                            + " C) Jornadas intuitivas, com progressos visíveis e feedback positivo a cada etapa.\n"
+                            + " D) Interfaces ocultas para não sobrecarregar a pessoa com informações.\n");
 
                     alternativas = input.next();
                     if (alternativas.equalsIgnoreCase("C")) {
-                        System.out.println("Resposta Correta! ");
+                        System.out.println("Resposta Correta!\n");
                         giant_fearHP = giant_fearHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -477,11 +491,11 @@ public class ParadoUXo {
                             + "A) Garantindo clareza, controle e transparência em cada etapa da interação. \n"
                             + " B) Criando urgência com contagem regressiva e pressão.\n"
                             + " C) Limitando opções para acelerar a decisão.\n"
-                            + " D) Escondendo detalhes do processo para não gerar dúvidas.");
+                            + " D) Escondendo detalhes do processo para não gerar dúvidas.\n");
 
                     alternativas = input.next();
                     if (alternativas.equalsIgnoreCase("A")) {
-                        System.out.println("Resposta Correta! ");
+                        System.out.println("Resposta Correta!\n");
                         giant_fearHP = giant_fearHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -528,6 +542,7 @@ public class ParadoUXo {
         int vida = 100;
         int sadness_siteHP = 100;
         String alternativas;
+        utilizandoItem();
         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
         do {
             int perguntas = perguntas();
@@ -542,7 +557,7 @@ public class ParadoUXo {
 
                     alternativas = input.next();
                     if (alternativas.equalsIgnoreCase("B")) {
-                        System.out.println("Resposta Correta! ");
+                        System.out.println("Resposta Correta!\n");
                         sadness_siteHP = sadness_siteHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -551,14 +566,14 @@ public class ParadoUXo {
                     break;
                 case 2:
                     System.out.println(" Considerando princípios avançados de design de interface, como a desorganização visual afeta a percepção de usabilidade e confiabilidade do sistema pelo usuário?\n"
-                            + "A) Um design desorganizado pode ser interpretado como inovador e, portanto, mais confiável."
-                            + "B) A desorganização visual reduz a clareza e pode induzir o usuário a questionar a credibilidade e a eficácia do sistema."
-                            + "C) A usabilidade não é afetada pela aparência visual, desde que as funcionalidades estejam presentes."
-                            + "D) Um layout caótico ajuda o usuário a focar apenas nas áreas que lhe interessam.");
+                            + "A) Um design desorganizado pode ser interpretado como inovador e, portanto, mais confiável.\n"
+                            + "B) A desorganização visual reduz a clareza e pode induzir o usuário a questionar a credibilidade e a eficácia do sistema.\n"
+                            + "C) A usabilidade não é afetada pela aparência visual, desde que as funcionalidades estejam presentes.\n"
+                            + "D) Um layout caótico ajuda o usuário a focar apenas nas áreas que lhe interessam.\n");
 
                     alternativas = input.next();
                     if (alternativas.equalsIgnoreCase("B")) {
-                        System.out.println("Resposta Correta! ");
+                        System.out.println("Resposta Correta!\n");
                         sadness_siteHP = sadness_siteHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -567,15 +582,15 @@ public class ParadoUXo {
                     break;
 
                 case 3:
-                    System.out.println("Como a ausência de hierarquia visual coerente em uma página digital impacta os processos de atenção seletiva e tomada de decisão do usuário?\n"
+                    System.out.println("    Como a ausência de hierarquia visual coerente em uma página digital impacta os processos de atenção seletiva e tomada de decisão do usuário?\n"
                             + "A) Facilita a seleção de informações ao distribuir o foco uniformemente entre todos os elementos.\n"
-                            + " B) Dificulta a priorização de informações, causando dispersão atencional e aumentando o esforço cognitivo para tomada de decisão. \n"
+                            + " B) Dificulta a priorização de informações, causando dispersão atencional e aumentando o esforço cognitivo para tomada de decisão.\n"
                             + " C) Incentiva o usuário a explorar o conteúdo em profundidade, melhorando a retenção.\n"
-                            + " D) Não tem impacto, pois o usuário sempre segue um caminho predefinido na interface.");
+                            + " D) Não tem impacto, pois o usuário sempre segue um caminho predefinido na interface.\n");
 
                     alternativas = input.next();
                     if (alternativas.equalsIgnoreCase("B")) {
-                        System.out.println("Resposta Correta! ");
+                        System.out.println("Resposta Correta!\n");
                         sadness_siteHP = sadness_siteHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -587,10 +602,10 @@ public class ParadoUXo {
                             + " A) Pode aumentar a curiosidade do usuário, elevando taxas de cliques e conversão.\n"
                             + " B) Geralmente contribui para a diminuição da taxa de conversão devido à confusão, maior taxa de rejeição e frustração do usuário.\n"
                             + " C) Melhora a experiência do usuário por meio do estímulo visual constante e da sensação de conteúdo abundante.\n"
-                            + " D) Não interfere nos indicadores de conversão, que dependem exclusivamente do preço e qualidade do produto.");
+                            + " D) Não interfere nos indicadores de conversão, que dependem exclusivamente do preço e qualidade do produto.\n");
                     alternativas = input.next();
                     if (alternativas.equalsIgnoreCase("B")) {
-                        System.out.println("Resposta Correta! ");
+                        System.out.println("Resposta Correta!\n");
                         sadness_siteHP = sadness_siteHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -617,30 +632,28 @@ public class ParadoUXo {
         return vida;
     }
 
-     static int lutaFinal() {
+    static int lutaFinal(){
         Scanner input = new Scanner(System.in);
         int vida = 100;
         int theMasterOfKnowledgeHP = 100;
         String alternativas;
 
+        System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
 
-   
-         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
-
-     do {
+        do {
             int perguntas = perguntas();
             System.out.println(">>> THE MASTER OF KNOWLEDGE <<<\n" + "HP: " + vida + "%\n");
             switch (perguntas) {
-            case 1:
-                System.out.println("Na jornada do usuário, o que caracteriza o momento de 'descoberta'?");
-                System.out.println("A) Quando o usuário já decidiu comprar e busca uma opção confiável");
-                System.out.println("B) Quando o usuário entra em contato direto com o produto ou serviço");
-                System.out.println("C) Quando o usuário identifica uma necessidade ou problema e busca soluções");
-                System.out.println("D) Quando o usuário abandona a jornada por falta de interesse.");
-                System.out.print("Resposta: ");
-                alternativas = input.next();
+                case 1:
+                    System.out.println("    Na jornada do usuário, o que caracteriza o momento de 'descoberta'?");
+                    System.out.println("A) Quando o usuário já decidiu comprar e busca uma opção confiável");
+                    System.out.println("B) Quando o usuário entra em contato direto com o produto ou serviço");
+                    System.out.println("C) Quando o usuário identifica uma necessidade ou problema e busca soluções");
+                    System.out.println("D) Quando o usuário abandona a jornada por falta de interesse.");
+                    System.out.print("Resposta: ");
+                    alternativas = input.next();
                     if (alternativas.equalsIgnoreCase("C")) {
-                        System.out.println("Resposta Correta! ");
+                        System.out.println("Resposta Correta!\n");
                         theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -648,16 +661,16 @@ public class ParadoUXo {
                     }
                     break;
 
-            case 2:
-                System.out.println("Em relação aos pontos de contato(touchpoints), qual das opções de representa um ponto de contato digital indireto?");
-                System.out.println("A) Atendimento via chat no site da empresa");
-                System.out.println("B) Publicação de um cliente sobre a marca em redes sociais");
-                System.out.println("C) Avaliação da empresa feita por terceiros em sites de review");
-                System.out.println("D) Página do produto no e-commerce oficial.");
-                System.out.print("Resposta: ");
-                 alternativas = input.next();
-                 if (alternativas.equalsIgnoreCase("C")) {
-                        System.out.println("Resposta Correta! ");
+                case 2:
+                    System.out.println("    Em relação aos pontos de contato(touchpoints), qual das opções de representa um ponto de contato digital indireto?");
+                    System.out.println("A) Atendimento via chat no site da empresa");
+                    System.out.println("B) Publicação de um cliente sobre a marca em redes sociais");
+                    System.out.println("C) Avaliação da empresa feita por terceiros em sites de review");
+                    System.out.println("D) Página do produto no e-commerce oficial");
+                    System.out.print("Resposta: ");
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("C")) {
+                        System.out.println("Resposta Correta!\n");
                         theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -665,32 +678,49 @@ public class ParadoUXo {
                     }
                     break;
 
-            case 3:
-                System.out.println("Qual das opções representa um dos principais objetivos da análise de pontos de contato na jornada do usuário?");
-                System.out.println("A) Aumentar o número de etapas da jornada para fidelizar o usuário");
-                System.out.println("B) Reduzir os custos de publicidade com base em dados de marketing");
-                System.out.println("C) Identificar oportunidades de melhorar a experiência do usuário");
-                System.out.println("D) Fornecer métricas financeiras para o setor de vendas");
-                System.out.print("Resposta: ");
-                 alternativas = input.next();
-                 if (alternativas.equalsIgnoreCase("C")) {
-                        System.out.println("Resposta Correta! ");
+                case 3:
+                    System.out.println("    Qual das opções representa um dos principais objetivos da análise de pontos de contato na jornada do usuário?");
+                    System.out.println("A) Aumentar o número de etapas da jornada para fidelizar o usuário");
+                    System.out.println("B) Reduzir os custos de publicidade com base em dados de marketing");
+                    System.out.println("C) Identificar oportunidades de melhorar a experiência do usuário");
+                    System.out.println("D) Fornecer métricas financeiras para o setor de vendas");
+                    System.out.print("Resposta: ");
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("C")) {
+                        System.out.println("Resposta Correta!\n");
                         theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
                         vida = vida - 50;
                     }
                     break;
-            case 4:
-                System.out.println("O que é considerado uma boa prática no design de interface para promover usabilidade ?");
-                System.out.println("A) Utilizar cores vibrantes em todas as áreas da tela para chamar atenção");
-                System.out.println("B) Garantir consistência nos elementos visuais e interação.");
-                System.out.println("C) Exibir todas as informações possíveis em uma única página para facilitar o acesso.");
-                System.out.println("D) Priorizar o uso de linguagem técnica para aumentar a credibilidade");
-                System.out.print("Resposta: ");
-                 alternativas = input.next();
-                if (alternativas.equalsIgnoreCase("B")) {
-                        System.out.println("Resposta Correta! ");
+                case 4:
+                    System.out.println("    O que é considerado uma boa prática no design de interface para promover usabilidade?");
+                    System.out.println("A) Utilizar cores vibrantes em todas as áreas da tela para chamar atenção");
+                    System.out.println("B) Garantir consistência nos elementos visuais e interação.");
+                    System.out.println("C) Exibir todas as informações possíveis em uma única página para facilitar o acesso.");
+                    System.out.println("D) Priorizar o uso de linguagem técnica para aumentar a credibilidade");
+                    System.out.print("Resposta: ");
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta!");
+                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                    } else {
+                        System.out.println("Resposta incorreta!");
+                        vida = vida - 50;
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("    Por que é importante considerar as emoções do usuário no design de uma experiência digital?");
+                    System.out.println("A) Porque usuários emocionis tendem a evitar interações digitais");
+                    System.out.println("B) Porque emoções negativas aumentam tempo de permanência em uma plataforma");
+                    System.out.println("C) Porque emoções influenciam diretamente a percepção de valor, confiança e satisfação com o produto ou serviço");
+                    System.out.println("D) Porque a emoção do usuário não interfere na interação com intefaces digitais.");
+                    System.out.print("Resposta: ");
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("C")) {
+                        System.out.println("Resposta Correta!\n");
                         theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -698,16 +728,16 @@ public class ParadoUXo {
                     }
                     break;
 
-            case 5:
-                System.out.println("Por que é importante considerar as emoções do usuário no design de uma experiência digital?");
-                System.out.println("A) Porque usuários emocionis tendem a evitar interações digitais");
-                System.out.println("B) Porque emoções negativas aumentam tempo de permanência em uma plataforma");
-                System.out.println("C) Porque emoções influenciam diretamente a percepção de valor, confiança e satisfação com o produto ou serviço");
-                System.out.println("D) Porque a emoção do usuário não interfere na interação com intefaces digitais.");
-                System.out.print("Resposta: ");
-                 alternativas = input.next();
-                 if (alternativas.equalsIgnoreCase("C")) {
-                        System.out.println("Resposta Correta! ");
+                case 6:
+                    System.out.println("    Qual a diferença entre usabilidade e experiencia do usuario (UX)?");
+                    System.out.println("A) Usabilidade é subjetiva, enquanto UX é mensurável");
+                    System.out.println("B) UX esta relacionada apenas ao design gráfico, enquanto usabilidade é mais ampla");
+                    System.out.println("C) Usabilidade considera apenas o aspecto emocional do usúario");
+                    System.out.println("D) Usabilidade foca na eficiência da interação; UX inclui também emoções, percepções e contexto");
+                    System.out.print("Resposta: ");
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("D")) {
+                        System.out.println("Resposta Correta!\n");
                         theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -715,16 +745,16 @@ public class ParadoUXo {
                     }
                     break;
 
-            case 6:
-                System.out.println("Qual a diferença entre usabilidade e experiencia do usuario (UX) ?:");
-                System.out.println("A) Usabilidade é subjetiva, enquanto UX é mensurável");
-                System.out.println("B) UX esta relacionada apenas ao design gráfico, enquanto usabilidade é mais ampla");
-                System.out.println("C) Usabilidade considera apenas o aspecto emocional do usúario");
-                System.out.println("D) Usabilidade foca na eficiência da interação; UX inclui também emoções, percepções e contexto");
-                System.out.print("Resposta: ");
-                 alternativas = input.next();
-                 if (alternativas.equalsIgnoreCase("D")) {
-                        System.out.println("Resposta Correta! ");
+                case 7:
+                    System.out.println("    Qual dos itens abaixo pode ser considerado uma barreira de usabilidade em uma interface digital?");
+                    System.out.println("A) Ícones com significados universais e bem posicionados");
+                    System.out.println("B) Textos muito longos e linguagem técnica demais");
+                    System.out.println("C) Feedback visual imediato após uma ação");
+                    System.out.println("D) Botões com espaçamento adequado para toque em dispositivos móveis.");
+                    System.out.print("Resposta: ");
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta!\n");
                         theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -732,33 +762,16 @@ public class ParadoUXo {
                     }
                     break;
 
-            case 7:
-                System.out.println("Qual dos itens abaixo pode ser considerado uma barreira de usabilidade em uma interface digital ?");
-                System.out.println("A) Ícones com significados universais e bem posicionados");
-                System.out.println("B) Textos muito longos e linguagem técnica demais");
-                System.out.println("C) Feedback visual imediato após uma ação");
-                System.out.println("D) Botões com espaçamento adequado para toque em dispositivos móveis.");
-                System.out.print("Resposta: ");
-                 alternativas = input.next();
-                 if (alternativas.equalsIgnoreCase("B")) {
-                        System.out.println("Resposta Correta! ");
-                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
-                    } else {
-                        System.out.println("Resposta incorreta!\n");
-                        vida = vida - 50;
-                    }
-                    break;
-
-            case 8:
-                System.out.println("O que melhor define o mapa da jornada do usuário?");
-                System.out.println("A) Uma representação gráfica do funil de vendas");
-                System.out.println("B) Uma visualizaçõa das etapas percorridas pelo usúario em sua interação com uma marca");
-                System.out.println("C) Um relatório estatístico de visitas ao site da empresa");
-                System.out.println("D) Um organograma de cargos responsáveis pela experiência do cliente");
-                System.out.print("Resposta: ");
-                 alternativas = input.next();
-                if (alternativas.equalsIgnoreCase("B")) {
-                        System.out.println("Resposta Correta! ");
+                case 8:
+                    System.out.println("    O que melhor define o mapa da jornada do usuário?");
+                    System.out.println("A) Uma representação gráfica do funil de vendas");
+                    System.out.println("B) Uma visualizaçõa das etapas percorridas pelo usúario em sua interação com uma marca");
+                    System.out.println("C) Um relatório estatístico de visitas ao site da empresa");
+                    System.out.println("D) Um organograma de cargos responsáveis pela experiência do cliente");
+                    System.out.print("Resposta: ");
+                    alternativas = input.next();
+                    if (alternativas.equalsIgnoreCase("B")) {
+                        System.out.println("Resposta Correta!\n");
                         theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
                     } else {
                         System.out.println("Resposta incorreta!\n");
@@ -766,7 +779,7 @@ public class ParadoUXo {
                     }
                     break;
             }
-        }  while (theMasterOfKnowledgeHP > 0 && vida > 0);
+        } while (theMasterOfKnowledgeHP > 0 && vida > 0);
 
         if (vida <= 0) {
             System.out.println("\nUserX\n"
@@ -776,15 +789,18 @@ public class ParadoUXo {
             intervaloLongo();
             créditosFinais();
         } else {
-            System.out.println("Você derrotou The Master Of Knowledge!!");
+            System.out.println("Você derrotou The Master Of Knowledge!");
             intervaloCurto();
             emocoesUserX();
-            SS(item4);
+            System.out.println("\n======== USERX TORNOU-SE O MESTRE DO CONHECIMENTO =========\n");
+            String[] emocao = emocoesUserX();
+            relatorioEmocoes(emocao);
         }
         return vida;
 
-     }
-      static void creditosFinais() { // Imprime os créditos finais
+    }
+
+    static void creditosFinais() { // Imprime os créditos finais
         System.out.println("Obrigado por jogar ParadoUXo!\n");
         intervaloCurto();
         System.out.println("Grupo 6\n");
@@ -798,25 +814,21 @@ public class ParadoUXo {
         System.out.println("Davi Teixeira da Silva \n");
         intervaloCurto();
         System.out.println("Kauane Mineiro Coimbra");
-       
-       menu();
-              
-      }
-      
+
+        menu();
+
+    }
+
     static void finalDaHistoria(int acertos, String[] emocoes) {
-    System.out.println("\n=== RESULTADO DA BATALHA ===");
-  
-  
-}
-    
+        System.out.println("\n=== RESULTADO DA BATALHA ===");
+
+    }
 
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    
-      public static void main(String[] args) {
-       
+    public static void main(String[] args) {
 
         if (menu() == 1) {
             System.out.println("\nNas distantes terras de Valfendor, um pequeno elfo chamado UserX se preparava para o que se tornaria uma história contada através dos séculos.\n"
@@ -893,7 +905,7 @@ public class ParadoUXo {
                 System.out.println("Seus olhos, de um amarelo fosforescente, fitaram UserX com um misto de raiva e propósito.\n"
                         + "De sua boca, um rugido gutural ecoou, fazendo as chamas das tochas vacilarem por um instante.\n"
                         + "Das sombras, uma voz reverberou dentro da mente de UserX — não a do orc, mas a da própria masmorra:\n"
-                        + ">>> — Dark Interface. O guardião do primeiro desafio. <<<\n");
+                        + "\n>>> Dark Interface. O guardião do primeiro desafio. <<<\n");
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
@@ -915,7 +927,7 @@ public class ParadoUXo {
                         + "Primeiro vieram as pernas, grossas como colunas de pedra; depois, um tronco imenso coberto por placas de couro endurecido e cicatrizes antigas.");
                 System.out.println("Quando a criatura se revelou por completo, UserX viu três cabeças, cada uma voltada em uma direção,como se vigiasse todos os ângulos do campo de batalha.\n"
                         + "Seus olhos, de cores distintas — um vermelho, outro dourado e o terceiro azul — brilhavam com uma luz intensa e predatória.\n"
-                        + ">>> - Infinittus Options. o Colosso Tríplice. <<<\n");
+                        + "\n>>> Infinittus Options. o Colosso Tríplice. <<<\n");
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
@@ -952,7 +964,7 @@ public class ParadoUXo {
                         + " Não era apenas medo físico — era como se a presença daquela entidade arrancasse suas certezas mais íntimas.\n"
                         + " O ambiente parecia se fechar sobre ele, distorcendo a luz e os sons.\n"
                         + "De algum lugar, a mesma voz grave e etérea ecoou:\n");
-                System.out.println(">>> Giant Fear, o Terror da Forma.<<<\n"
+                System.out.println("\n>>> Giant Fear, o Terror da Forma.<<<\n"
                         + "Aquele que alimenta sua força da dúvida e da hesitação.\n"
                         + "Apenas quem encara a própria sombra pode superá-lo.\n");
                 intervaloCurto();
@@ -980,7 +992,7 @@ public class ParadoUXo {
                 System.out.println("O corpo do orc era coberto por cicatrizes e marcas de antigas batalhas, e das runas gravadas na pele emanava uma energia melancólica, que parecia absorver a luz ao redor.\n"
                         + " A simples presença do SADNESS SITE fazia o ar pesar, quase como se o próprio salão lamentasse junto com ele.\n");
                 System.out.println("A voz etérea da masmorra soou mais uma vez, profunda e grave:\n"
-                        + ">>> Sadness Site, o Guardião da Melancolia. <<<\n"
+                        + "\n>>> Sadness Site, o Guardião da Melancolia. <<<\n"
                         + "Duas cabeças, um único coração pesado.\n"
                         + "Aqueles que não confrontam a tristeza em si mesmos jamais avançam.\n");
                 intervaloCurto();
@@ -990,58 +1002,42 @@ public class ParadoUXo {
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 System.out.println("Quatro dos desafios haviam sido superados.\n"
-                        + " UserX já não era mais o mesmo que quando entrara, era hora de colocar em prática tudo que havia aprendido até então\n");
+                        + "UserX já não era mais o mesmo que quando entrara, era hora de colocar em prática tudo que havia aprendido até então\n");
 
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-                 System.out.println("\n=== A CHEGADA DO MESTRE DO CONHECIMENTO ===\n");
-                 System.out.println("À sua frente, o último inimigo o aguardava.");
-                 intervaloCurto();
-                 System.out.println("O mesmo senhor da carruagem agora flutuava a poucos centímetros do chão");
-                 System.out.println("envolto por um manto que se movia como se respirasse. Seu sorriso enigmático permanecia");
-                 System.out.println("e sob o tecido, as feições revelavam-se, olhos brilhando em amarelo intenso");
-                 System.out.println("veios de luz e runas se espalhando por seu rosto e braços, pulsando com a vida própria");
-                 System.out.println("e sua presença fazia o ar vibrar.");
-                 intervaloCurto();
-                 System.out.println("— Parabéns por chegar até aqui, garoto. É hora de provar que é digno. - A voz ecoou em todos os cantos da sala.");
-                 System.out.println("O chão tremeu enquanto ele ergueu o bastão.\n");
-                 System.out.println("- Derrote-me, me supere, e então assuma o meu lugar como Mestre do Conhecimento.");
-                  
+                System.out.println("\n=== A CHEGADA DO MESTRE DO CONHECIMENTO ===\n");
+                System.out.println("À sua frente, o último inimigo o aguardava.");
+                System.out.println("O mesmo senhor da carruagem agora flutuava a poucos centímetros do chão");
+                System.out.println("envolto por um manto que se movia como se respirasse. Seu sorriso enigmático permanecia");
+                System.out.println("e sob o tecido, as feições revelavam-se, olhos brilhando em amarelo intenso");
+                System.out.println("veios de luz e runas se espalhando por seu rosto e braços, pulsando com a vida própria");
+                System.out.println("e sua presença fazia o ar vibrar.");
+                intervaloCurto();
+                System.out.println("— Parabéns por chegar até aqui, garoto. É hora de provar que é digno. - A voz ecoou em todos os cantos da sala.");
+                System.out.println("O chão tremeu enquanto ele ergueu o bastão.\n");
+                System.out.println("- Derrote-me, me supere, e então assuma o meu lugar como Mestre do Conhecimento.");
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 lutaFinal();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-                
-                 System.out.println("A luz ao redor explodiu. Runas se acenderam em volta de UserX...");
-                 System.out.println("Seu corpo ardia enquanto símbolos de poder surgiam sobre sua pele.");
-                 System.out.println("Ele compreendeu o verdadeiro significado do conhecimento.");
+                System.out.println("A luz ao redor explodiu. Runas se acenderam em volta de UserX...");
+                System.out.println("Seu corpo ardia enquanto símbolos de poder surgiam sobre sua pele.");
+                System.out.println("Ele compreendeu o verdadeiro significado do conhecimento.");
                 System.out.println("— Agora você sabe o que é ser o Mestre do Conhecimento — disse o velho.");
                 System.out.println("E seu corpo se desfez em poeira dourada.");
-                 System.out.println("UserX retornou à estrada, mas agora transformado.");
-                 System.out.println("Nascia ali o novo Mestre do Conhecimento.");
+                System.out.println("UserX retornou à estrada, mas agora transformado.");
+                System.out.println("Nascia ali o novo Mestre do Conhecimento.");
 
-                 
-                intervaloCurto(); 
+                intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 intervaloCurto();
-                
-                DI(item1);
-                IO(item2);
-                GF(item3);
-                SS(item4);
-                emocoesUserX();
-                String[] emocao = emocoesUserX();
-                relatorioEmocoes(emocao);
-               
-              
-                 
-              
-                 
+                créditosFinais();
+
             }
         }
     }
-
 }
