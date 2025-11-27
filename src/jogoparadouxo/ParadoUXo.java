@@ -596,7 +596,10 @@ public class ParadoUXo {
         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
         do {
             int perguntas = perguntas();
-            System.out.println(">>> SADNESS SITE <<<\n" + "HP: " + vida + "%\n");
+            System.out.println(">>> SADNESS SITE <<<\n"
+                    + "HP: " + sadness_siteHP + "%");
+            System.out.println("\nUserX\n"
+                    + "HP: " + vida + "%\n");
             switch (perguntas) {
                 case 1:
                     System.out.println(" De que forma o excesso de informações apresentadas simultaneamente em uma interface digital pode comprometer a eficiência cognitiva do usuário durante sua jornada?\n"
@@ -605,12 +608,12 @@ public class ParadoUXo {
                             + " C) Incentiva o usuário a explorar todas as opções, aumentando o engajamento positivo.\n"
                             + " D) Facilita a memorização de detalhes importantes ao expor o usuário a muitas informações. telas com poucas informações, para o usuário não pensar demais.\n");
 
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("B")) {
+                    if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
                         sadness_siteHP = sadness_siteHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!\n" +
+                                "Dica: “Corte ruído: quanto menos o usuário precisar filtrar, mais rápido ele decide.”");
                         vida = vida - 50;
                     }
                     break;
@@ -621,44 +624,45 @@ public class ParadoUXo {
                             + "C) A usabilidade não é afetada pela aparência visual, desde que as funcionalidades estejam presentes.\n"
                             + "D) Um layout caótico ajuda o usuário a focar apenas nas áreas que lhe interessam.\n");
 
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("B")) {
+                    if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
                         sadness_siteHP = sadness_siteHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!\n" +
+                                "Dica: “Organize visualmente: confusão na tela vira desconfiança na marca.”");
                         vida = vida - 50;
                     }
                     break;
 
                 case 3:
-                    System.out.println("    Como a ausência de hierarquia visual coerente em uma página digital impacta os processos de atenção seletiva e tomada de decisão do usuário?\n"
+                    System.out.println(" Como a ausência de hierarquia visual coerente em uma página digital impacta os processos de atenção seletiva e tomada de decisão do usuário?\n"
                             + "A) Facilita a seleção de informações ao distribuir o foco uniformemente entre todos os elementos.\n"
                             + " B) Dificulta a priorização de informações, causando dispersão atencional e aumentando o esforço cognitivo para tomada de decisão.\n"
                             + " C) Incentiva o usuário a explorar o conteúdo em profundidade, melhorando a retenção.\n"
                             + " D) Não tem impacto, pois o usuário sempre segue um caminho predefinido na interface.\n");
 
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("B")) {
+                    if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
                         sadness_siteHP = sadness_siteHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!\n" +
+                                "Dica: “Use hierarquia: destaque o que importa para evitar que o usuário se perca.”");
                         vida = vida - 50;
                     }
                     break;
                 case 4:
-                    System.out.println("  Quais são as implicações da presença de um design excessivamente carregado e sem foco no comportamento do usuário e nos indicadores de conversão?\n"
+                    System.out.println(" Quais são as implicações da presença de um design excessivamente carregado e sem foco no comportamento do usuário e nos indicadores de conversão?\n"
                             + " A) Pode aumentar a curiosidade do usuário, elevando taxas de cliques e conversão.\n"
                             + " B) Geralmente contribui para a diminuição da taxa de conversão devido à confusão, maior taxa de rejeição e frustração do usuário.\n"
                             + " C) Melhora a experiência do usuário por meio do estímulo visual constante e da sensação de conteúdo abundante.\n"
                             + " D) Não interfere nos indicadores de conversão, que dependem exclusivamente do preço e qualidade do produto.\n");
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("B")) {
+
+                    if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
                         sadness_siteHP = sadness_siteHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!\n" +
+                                "Dica: “Enxugue o design: excesso visual drena atenção e derruba conversão.”");
                         vida = vida - 50;
                     }
                     break;
