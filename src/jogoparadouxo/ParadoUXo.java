@@ -401,12 +401,13 @@ public class ParadoUXo {
                             + "B) Estimula a decisão rápida, pois o usuário se sente mais confiante.\n"
                             + "C) Facilita a escolha, pois oferece liberdade total ao usuário.\n"
                             + "D) Pode causar sobrecarga cognitiva, dificultando a decisão e gerando frustração.\n");
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("D")) {
+
+                    if (alternativas().equalsIgnoreCase("D")) {
                         System.out.println("Resposta correta!");
                         infinittus_optionsHP = infinittus_optionsHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!");
+                        System.out.println("Resposta incorreta!"+
+                                "Dica: “Ofereça variedade, mas guie o usuário: destaque o que é mais relevante para cada perfil.”");
                         vida = vida - 50;
                     }
                     break;
@@ -417,12 +418,13 @@ public class ParadoUXo {
                             + "B) Aumenta a sensação de personalização e atende melhor a diferentes perfis de usuários.\n"
                             + "C) Elimina a necessidade de navegação, já que tudo está disponível de forma automática.\n"
                             + "D) Garante que todos os usuários farão a escolha certa sem dificuldades.\n");
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("B")) {
+
+                    if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta correta!\n");
                         infinittus_optionsHP = infinittus_optionsHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!"+
+                                "Dica: “Simplifique: limite escolhas ao que realmente importa para evitar travamento mental.”");
                         vida = vida - 50;
                     }
                     break;
@@ -433,12 +435,13 @@ public class ParadoUXo {
                             + "B) Na etapa de pós-venda, onde o usuário já finalizou sua escolha.\n"
                             + "C) Durante a escolha de um produto ou serviço, quando o usuário precisa tomar uma decisão.\n"
                             + "D) No momento do login, já que muitas opções confundem o acesso ao sistema.\n");
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("C")) {
+
+                    if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta correta!\n");
                         infinittus_optionsHP = infinittus_optionsHP - 50;
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!"+
+                                "Dica: “Quando a decisão importa, reduza ruído: menos distração, mais clareza.”");
                         vida = vida - 50;
                     }
                     break;
@@ -449,13 +452,14 @@ public class ParadoUXo {
                             + "B) Usar filtros, categorias claras e recomendações personalizadas para organizar as opções.\n"
                             + "C) Exibir todas as opções na tela inicial, sem organização.\n"
                             + "D) Reduzir o número de opções ao mínimo, mesmo que não atenda todos os usuários.\n");
-                    alternativas = input.next();
-                    if (alternativas.equalsIgnoreCase("B")) {
+
+                    if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta correta!\n");
                         infinittus_optionsHP = infinittus_optionsHP - 50;
 
                     } else {
-                        System.out.println("Resposta incorreta!\n");
+                        System.out.println("Resposta incorreta!"+
+                                "Dica: “Organize antes de reduzir: filtros e categorias dão liberdade sem caos.”");
                         vida = vida - 50;
                     }
                     break;
