@@ -77,6 +77,37 @@ public class ParadoUXo {
         return opções;
     }
 
+    static String alternativas() {
+        Scanner input = new Scanner(System.in);
+        int laço = 0;
+        String alternativas;
+        do {
+            alternativas = input.next();
+            switch (alternativas) {
+                case "A":
+                case "a":
+                    laço = 0;
+                    break;
+                case "B":
+                case "b":
+                    laço = 0;
+                    break;
+                case "C":
+                case "c":
+                    laço = 0;
+                    break;
+                case "D":
+                case "d":
+                    laço = 0;
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    laço = -1;
+            }
+        } while (laço < 0);
+        return alternativas;
+    }
+
     static int aceitarArtefato() {
         Scanner input = new Scanner(System.in);
         int escolha = 0;
