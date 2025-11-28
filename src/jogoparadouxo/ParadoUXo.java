@@ -9,6 +9,21 @@ public class ParadoUXo {
     static String item3 = "ESPADA DE PRATA";
     static String item4 = "CAPA DA INVISIBILIDADE";
 
+    static  int[] inventário (){
+
+        int[] inventário = new int[4];
+        inventário[0] = 0; //Arco e flecha com chamas
+        inventário[1] = 0; //Poção do crescimento
+        inventário[2] = 0; //Espada de prata
+        inventário[3] = 0; //Capa da invisibilidade
+
+        /* 0 = Não possui o item
+           1 = Possui o item
+           2 = Gastou o item */
+
+        return inventário;
+    }
+
     static int botãoDeSkip() { // Use quando precisar inserir um botão de "Próximo".
         Scanner input = new Scanner(System.in);
         int skip = 0;
@@ -107,6 +122,7 @@ public class ParadoUXo {
         } while (laço < 0);
         return alternativas;
     }
+
     static void créditosFinais() { // Imprime os créditos finais
         System.out.println("Obrigado por jogar ParadoUXo!\n");
         intervaloCurto();
@@ -123,13 +139,10 @@ public class ParadoUXo {
         System.out.println("Kauane Mineiro Coimbra");
     }
 
-    static int aceitarArtefato() {
+    static int sim_não() {
         Scanner input = new Scanner(System.in);
         int escolha = 0;
         do {
-            System.out.println("Aceitar artefato?\n"
-                    + "1 - Sim\n"
-                    + "2 - Não\n");
             String escolhaString = input.next();
             switch (escolhaString) {
                 case "1":
@@ -211,39 +224,54 @@ public class ParadoUXo {
 
         System.out.println("VOCÊ GANHOU UM NOVO ITEM...\n");
         intervaloCurto();
-        System.out.println("\n==== " + item1 + " ====");
+        System.out.println("\n==== " + item1 + " ====\n" +
+                "Arco capaz de disparar flechas flamejantes que incendeiam os inimigos com chamas mágicas que nunca se apagam. É capaz de causar grandes quantidades de dano em combates longos.");
     }
 
     static void IO(String item2) { // utilizar na segunda batalha
 
         System.out.println("VOCÊ GANHOU UM NOVO ITEM...\n");
         intervaloCurto();
-        System.out.println("\n==== " + item2 + " ====");
+        System.out.println("\n==== " + item2 + " ====\n" +
+                "Uma poção capaz de aumentar o tamanho de quem a bebe. Use-a para aumentar sua vida máxima.");
     }
 
     static void GF(String item3) { // utilizar na terceira batalha
 
         System.out.println("VOCÊ GANHOU UM NOVO ITEM...\n");
         intervaloCurto();
-        System.out.println("\n==== " + item3 + " ====");
+        System.out.println("\n==== " + item3 + " ====" +
+                "Espada lendária, capaz de cortar qualquer coisa. Empunhe-a para desferir um dano massivo ao seu oponente.");
     }
 
     static void SS(String item4) { // utilizar na quarta batalha
 
         System.out.println("VOCÊ GANHOU UM NOVO ITEM...\n");
         intervaloCurto();
-        System.out.println("\n==== " + item4 + " ====");
+        System.out.println("\n==== " + item4 + " ====\n" +
+                "Capa utilizada pelo Rei dos Ladrões. Torna aquele que à veste invisível por uma rodada, evitando sofrer ataques.");
     }
 
-    static void utilizandoItem(){ 
-        String[] itens = {"\nARCO E FLECHA COM CHAMAS\n", "\nPOÇÃO DO CRESCIMENTO\n","\nESPADA DE PRATA\n", "\nCAPA DA INVISIBILIDADE\n"};
-
-        System.out.println("==== UTILIZANDO ITEM... ====");
-
-        Random random = new Random();
-        int item = random.nextInt(itens.length); 
-
-        System.out.println(itens[item]);
+    static int utilizandoItem(){
+        Scanner input = new Scanner(System.in);
+        int escolha = 0;
+        do {
+            String escolhaString = input.next();
+            switch (escolhaString) {
+                case "1":
+                    escolha = 1;
+                    break;
+                case "2":
+                    escolha = 2;
+                    break;
+                case "3":
+                    escolha = 3;
+                default:
+                    escolha = -1;
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        } while (escolha < 0);
+        return escolha;
     }
 
     static String[] emocoesUserX() { // coleta as emoções que o jogador sentiu durante a batalha
@@ -257,11 +285,9 @@ public class ParadoUXo {
 
         System.out.println("Em uma única palavra, o que você sentiu durante a batalha?");
 
-        for (int i = 0; i <= 1; i++) {
+        for (int i = 0; i <= 0; i++) {
             emocao[i] = input.nextLine();
-
         }
-
         return emocao;
     }
 
@@ -272,25 +298,24 @@ public class ParadoUXo {
 
         for (int i = 0; i < emocao.length; i++) {
             System.out.println((i + 1) + " - " + emocao[i]);
-
         }
 
         return emocao;
     }
 
-    static int darkInterface() {
+    static int darkInterface(int[] inventário) {
         Scanner input = new Scanner(System.in);
         int vida = 100;
-        int dark_interfaceHP = 100;
+        int dark_interfaceHP = 80;
 
         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
 
         do {
             int perguntas = perguntas();
             System.out.println(">>> DARK INTERFACE <<<\n"
-                    + "HP: " + dark_interfaceHP + "%");
+                    + "HP: " + dark_interfaceHP);
             System.out.println("\nUserX\n"
-                    + "HP: " + vida + "%\n");
+                    + "HP: " + vida + "\n");
             switch (perguntas) {
                 case 1:
                     System.out.println("   O que é a jornada do usuário?\n"
@@ -301,7 +326,7 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta correta!");
-                        dark_interfaceHP = dark_interfaceHP - 50;
+                        dark_interfaceHP = dark_interfaceHP - 40;
                     } else {
                         System.out.println("Resposta incorreta!" +
                                 "Dica: “Foque em identificar todos os momentos em que o usuário pensa, sente e decide”");
@@ -318,7 +343,7 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta correta!\n");
-                        dark_interfaceHP = dark_interfaceHP - 50;
+                        dark_interfaceHP = dark_interfaceHP - 40;
                     } else {
                         System.out.println("Resposta incorreta!" +
                                 "Dica: “Mapeie onde o usuário encontra fricção e elimine esses pontos.”");
@@ -335,7 +360,7 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta correta!\n");
-                        dark_interfaceHP = dark_interfaceHP - 50;
+                        dark_interfaceHP = dark_interfaceHP - 40;
                     } else {
                         System.out.println("Resposta incorreta!" +
                                 "Dica: “Priorize acessibilidade: o usuário precisa navegar bem em qualquer dispositivo.”");
@@ -352,7 +377,7 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta correta!\n");
-                        dark_interfaceHP = dark_interfaceHP - 50;
+                        dark_interfaceHP = dark_interfaceHP - 40;
 
                     } else {
                         System.out.println("Resposta incorreta!" +
@@ -375,25 +400,24 @@ public class ParadoUXo {
             intervaloCurto();
             emocoesUserX();
             DI(item1);
+            inventário[0] = 1;
         }
         return vida;
     }
 
-
-    static int infinittusOptions() {
+    static int infinittusOptions(int[] inventário) {
         Scanner input = new Scanner(System.in);
         int vida = 100;
         int infinittus_optionsHP = 100;
         String alternativas;
-        utilizandoItem();
         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
 
         do {
             int perguntas = perguntas();
             System.out.println(">>> INFINITTUS OPTIONS <<<\n"
-                    + "HP: " + infinittus_optionsHP + "%");
+                    + "HP: " + infinittus_optionsHP);
             System.out.println("\nUserX\n"
-                    + "HP: " + vida + "%\n");
+                    + "HP: " + vida + "\n");
             switch (perguntas) {
                 case 1:
                     System.out.println("   Como o excesso de opções pode impactar negativamente a tomada de decisão do usuário durante sua jornada em um site ou aplicativo?\n"
@@ -404,7 +428,28 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("D")) {
                         System.out.println("Resposta correta!");
-                        infinittus_optionsHP = infinittus_optionsHP - 50;
+
+                        if (inventário[0] == 1) {
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1){
+                                inventário[0] = 2;
+                                infinittus_optionsHP = infinittus_optionsHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else {
+                                infinittus_optionsHP = infinittus_optionsHP - 40;
+                            }
+                        }
+                        else if (inventário[0] == 2) {
+                            infinittus_optionsHP = infinittus_optionsHP - 50;
+                        }
+                        else {
+                            infinittus_optionsHP = infinittus_optionsHP - 40;
+                        }
+
+
                     } else {
                         System.out.println("Resposta incorreta!"+
                                 "Dica: “Ofereça variedade, mas guie o usuário: destaque o que é mais relevante para cada perfil.”");
@@ -421,7 +466,28 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta correta!\n");
-                        infinittus_optionsHP = infinittus_optionsHP - 50;
+
+                        if (inventário[0] == 1) {
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1){
+                                inventário[0] = 2;
+                                infinittus_optionsHP = infinittus_optionsHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else {
+                                infinittus_optionsHP = infinittus_optionsHP - 40;
+                            }
+                        }
+                        else if (inventário[0] == 2) {
+                            infinittus_optionsHP = infinittus_optionsHP - 50;
+                        }
+                        else {
+                            infinittus_optionsHP = infinittus_optionsHP - 40;
+                        }
+
+
                     } else {
                         System.out.println("Resposta incorreta!"+
                                 "Dica: “Simplifique: limite escolhas ao que realmente importa para evitar travamento mental.”");
@@ -438,7 +504,28 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta correta!\n");
-                        infinittus_optionsHP = infinittus_optionsHP - 50;
+
+                        if (inventário[0] == 1) {
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1){
+                                inventário[0] = 2;
+                                infinittus_optionsHP = infinittus_optionsHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else {
+                                infinittus_optionsHP = infinittus_optionsHP - 40;
+                            }
+                        }
+                        else if (inventário[0] == 2) {
+                            infinittus_optionsHP = infinittus_optionsHP - 50;
+                        }
+                        else {
+                            infinittus_optionsHP = infinittus_optionsHP - 40;
+                        }
+
+
                     } else {
                         System.out.println("Resposta incorreta!"+
                                 "Dica: “Quando a decisão importa, reduza ruído: menos distração, mais clareza.”");
@@ -455,7 +542,27 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta correta!\n");
-                        infinittus_optionsHP = infinittus_optionsHP - 50;
+
+                        if (inventário[0] == 1) {
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1){
+                                inventário[0] = 2;
+                                infinittus_optionsHP = infinittus_optionsHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else {
+                                infinittus_optionsHP = infinittus_optionsHP - 40;
+                            }
+                        }
+                        else if (inventário[0] == 2) {
+                            infinittus_optionsHP = infinittus_optionsHP - 50;
+                        }
+                        else {
+                            infinittus_optionsHP = infinittus_optionsHP - 40;
+                        }
+
 
                     } else {
                         System.out.println("Resposta incorreta!"+
@@ -468,35 +575,62 @@ public class ParadoUXo {
 
         if (vida <= 0) {
             System.out.println("\nUserX\n"
-                    + "HP: " + vida + "%\n");
+                    + "HP: " + vida + "\n");
             intervaloCurto();
             System.out.println("GameOver\n");
             intervaloLongo();
             créditosFinais();
         } else {
+
+            if (inventário[0] == 2){
+                System.out.println("O item: " + item1 + " se quebrou.");
+                inventário[0] = 0;
+            }
+
             System.out.println("Você derrotou Infinittus Options!!");
             intervaloCurto();
             emocoesUserX();
             IO(item2);
+            inventário[1] = 1;
         }
         return vida;
     }
 
-    static int giantFear() {
+    static int giantFear(int[] inventário) {
         Scanner input = new Scanner(System.in);
         int vida = 100;
-        int giant_fearHP = 100;
+        int giant_fearHP = 120;
         String alternativas;
-        utilizandoItem();
         System.out.println("Responda as questões corretamente para infringir o seu inimigo");
 
         do {
             int perguntas = perguntas();
 
-            System.out.println(">>> GIANT FEAR <<<\n"
-                    + "HP: " + giant_fearHP + "%");
-            System.out.println("\nUserX\n"
-                    + "HP: " + vida + "%\n");
+            if (inventário[1] == 1) {
+                System.out.println("Você possui o item: " + item2 + "\nGostaria de usá-lo?" +
+                        "\n1 - Sim" +
+                        "\n2 - Não");
+
+                if (sim_não() == 1) {
+                    inventário[1] = 2;
+                    vida = 150;
+                    System.out.println(">>> GIANT FEAR <<<\n"
+                            + "HP: " + giant_fearHP);
+                    System.out.println("\nUserX\n"
+                            + "HP: " + vida + "\n");
+                } else {
+                    System.out.println(">>> GIANT FEAR <<<\n"
+                            + "HP: " + giant_fearHP);
+                    System.out.println("\nUserX\n"
+                            + "HP: " + vida + "\n");
+                }
+            }
+            else {
+                System.out.println(">>> GIANT FEAR <<<\n"
+                        + "HP: " + giant_fearHP);
+                System.out.println("\nUserX\n"
+                        + "HP: " + vida + "\n");
+            }
 
             switch (perguntas) {
                 case 1:
@@ -508,13 +642,35 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta Correta!\n");
-                        giant_fearHP = giant_fearHP - 50;
-                    } else {
+
+                        if (inventário[0] == 1) {
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1){
+                                inventário[0] = 2;
+                                giant_fearHP = giant_fearHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else {
+                                giant_fearHP = giant_fearHP - 40;
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            giant_fearHP = giant_fearHP - 50;
+                        }
+                        else {
+                            giant_fearHP = giant_fearHP - 40;
+                        }
+                    }
+                    else {
                         System.out.println("Resposta incorreta!\n"+
                                 "Dica: “Mostre sempre o próximo passo: orientação reduz medo e aumenta segurança.”");
                         vida = vida - 50;
                     }
                     break;
+
                 case 2:
                     System.out.println("O que pode transformar a ansiedade do usuário em confiança durante a jornada digital?\n"
                             + " A) Design minimalista, sem explicações ou ajuda.\n"
@@ -525,13 +681,36 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
-                        giant_fearHP = giant_fearHP - 50;
-                    } else {
+                        if (inventário[0] == 1) {
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[0] = 2;
+                                giant_fearHP = giant_fearHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else {
+                                giant_fearHP = giant_fearHP - 40;
+                            }
+                        } else if (inventário[0] == 2){
+                            giant_fearHP = giant_fearHP - 50;
+
+                        } else {
+                            giant_fearHP = giant_fearHP - 40;
+                        }
+                    }
+
+
+
+                    else {
                         System.out.println("Resposta incorreta!\n"+
                                 "Dica: “Estruture o caminho: etapas claras quebram a ansiedade em partes manejáveis.”");
                         vida = vida - 50;
                     }
                     break;
+
                 case 3:
                     System.out.println("Qual elemento da experiência do usuário ajuda a transformar um medo inicial em um sentimento de conquista ou realização?\n"
                             + " A) Fricções propositalmente criadas para filtrar usuários.\n"
@@ -539,16 +718,37 @@ public class ParadoUXo {
                             + " C) Jornadas intuitivas, com progressos visíveis e feedback positivo a cada etapa.\n"
                             + " D) Interfaces ocultas para não sobrecarregar a pessoa com informações.\n");
 
-
                     if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta Correta!\n");
-                        giant_fearHP = giant_fearHP - 50;
-                    } else {
+                        if (inventário[0] == 1) {
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[0] = 2;
+                                giant_fearHP = giant_fearHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else {
+                                giant_fearHP = giant_fearHP - 40;
+                            }
+
+                        } else if (inventário[0] == 2){
+                            giant_fearHP = giant_fearHP - 50;
+                        } else {
+                            giant_fearHP = giant_fearHP - 40;
+                        }
+                    }
+
+
+                    else {
                         System.out.println("Resposta incorreta!\n"+
                                 "Dica: “Evidencie progresso: ver avanço transforma dúvida em motivação.”");
                         vida = vida - 50;
                     }
                     break;
+
                 case 4:
                     System.out.println("De que forma a jornada do usuário pode transformar uma ação temida (como uma compra ou envio de dados) em um momento de realização?\n"
                             + " A) Garantindo clareza, controle e transparência em cada etapa da interação. \n"
@@ -556,11 +756,32 @@ public class ParadoUXo {
                             + " C) Limitando opções para acelerar a decisão.\n"
                             + " D) Escondendo detalhes do processo para não gerar dúvidas.\n");
 
-
                     if (alternativas().equalsIgnoreCase("A")) {
                         System.out.println("Resposta Correta!\n");
-                        giant_fearHP = giant_fearHP - 50;
-                    } else {
+
+                        if (inventário[0] == 1) {
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[0] = 2;
+                                giant_fearHP = giant_fearHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else {
+                                giant_fearHP = giant_fearHP - 40;
+                            }
+
+                        } else if (inventário[0] == 2){
+                            giant_fearHP = giant_fearHP - 50;
+                        } else {
+                            giant_fearHP = giant_fearHP - 40;
+                        }
+                    }
+
+
+                    else {
                         System.out.println("Resposta incorreta!\n"+
                                 "Dica: “Transparência gera confiança: explique o que vai acontecer antes de acontecer.”");
                         vida = vida - 50;
@@ -577,29 +798,65 @@ public class ParadoUXo {
             intervaloLongo();
             créditosFinais();
         } else {
+
+            if (inventário[0] == 2){
+                System.out.println("O item: " + item1 + " se quebrou.");
+                inventário[0] = 0;
+            }
+
+            if (inventário[1] == 2){
+                System.out.println("O item: " + item2 + " se quebrou.");
+                inventário[1] = 0;
+            }
+
             System.out.println("Você derrotou Giant Fear!!");
             intervaloCurto();
             emocoesUserX();
             GF(item3);
+            inventário[2] = 1;
         }
         return vida;
     }
 
 
 
-    static int sadnessSite() {
+    static int sadnessSite(int[] inventário) {
         Scanner input = new Scanner(System.in);
         int vida = 100;
-        int sadness_siteHP = 100;
+        int sadness_siteHP = 150;
         String alternativas;
-        utilizandoItem();
+
         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
         do {
             int perguntas = perguntas();
+
+            if (inventário[1] == 1){
+                System.out.println("Você possui o item: " + item2 + "\nGostaria de usá-lo?"+
+                        "\n1 - Sim" +
+                        "\n2 - Não");
+
+                if(sim_não() == 1){
+                    inventário[1] = 2;
+                    vida = 150;
+                    System.out.println(">>> SADNESS SITE <<<\n"
+                            + "HP: " + sadness_siteHP);
+                    System.out.println("\nUserX\n"
+                            + "HP: " + vida + "\n");
+                }
+                else {
+                    System.out.println(">>> SADNESS SITE <<<\n"
+                            + "HP: " + sadness_siteHP);
+                    System.out.println("\nUserX\n"
+                            + "HP: " + vida + "\n");
+                }
+            }
+            else {
             System.out.println(">>> SADNESS SITE <<<\n"
-                    + "HP: " + sadness_siteHP + "%");
+                    + "HP: " + sadness_siteHP);
             System.out.println("\nUserX\n"
-                    + "HP: " + vida + "%\n");
+                    + "HP: " + vida + "\n");
+        }
+
             switch (perguntas) {
                 case 1:
                     System.out.println(" De que forma o excesso de informações apresentadas simultaneamente em uma interface digital pode comprometer a eficiência cognitiva do usuário durante sua jornada?\n"
@@ -610,8 +867,51 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
-                        sadness_siteHP = sadness_siteHP - 50;
-                    } else {
+
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                            "\n1 - " + item1 +
+                                            "\n2 - " + item3 +
+                                            "\n3 - " + "Recusar.");
+
+
+                            if (utilizandoItem() == 1){
+                                inventário[0] = 2;
+                                sadness_siteHP = sadness_siteHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else if (utilizandoItem() == 2){
+                            inventário[2] = 2;
+                            System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                            sadness_siteHP = sadness_siteHP - 100;
+                            }
+                            else {
+                                sadness_siteHP = sadness_siteHP - 40;
+                            }
+
+                    }
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                                System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                        "\n1 - Sim" +
+                                        "\n2 - Não");
+
+                                if (sim_não() == 1){
+                                    inventário[2] = 2;
+                                    System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                    sadness_siteHP = sadness_siteHP - 100;
+                                }
+                            }
+
+                        else if (inventário[0] == 2){
+                                sadness_siteHP = sadness_siteHP  - 50;
+                            }
+
+                        else {
+                            sadness_siteHP = sadness_siteHP  - 40;
+                        }
+                    }
+
+                    else {
                         System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Corte ruído: quanto menos o usuário precisar filtrar, mais rápido ele decide.”");
                         vida = vida - 50;
@@ -626,8 +926,49 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
-                        sadness_siteHP = sadness_siteHP - 50;
-                    } else {
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                    "\n1 - " + item1 +
+                                    "\n2 - " + item3 +
+                                    "\n3 - " + "Recusar.");
+
+                                if (utilizandoItem() == 1){
+                                    inventário[0] = 2;
+                                    sadness_siteHP = sadness_siteHP - 50;
+                                    System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                                }
+                                else if (utilizandoItem() == 2){
+                                    inventário[2] = 2;
+                                    System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                    sadness_siteHP = sadness_siteHP - 100;
+                                }
+                                else {
+                                    sadness_siteHP = sadness_siteHP  - 40;
+                                }
+                        }
+
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                            System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                sadness_siteHP = sadness_siteHP - 100;
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            sadness_siteHP = sadness_siteHP  - 50;
+                        }
+
+                        else {
+                            sadness_siteHP = sadness_siteHP  - 40;
+                        }
+                    }
+
+                    else {
                         System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Organize visualmente: confusão na tela vira desconfiança na marca.”");
                         vida = vida - 50;
@@ -643,13 +984,55 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
-                        sadness_siteHP = sadness_siteHP - 50;
-                    } else {
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                    "\n1 - " + item1 +
+                                    "\n2 - " + item3 +
+                                    "\n3 - " + "Recusar.");
+
+                            if (utilizandoItem() == 1){
+                                inventário[0] = 2;
+                                sadness_siteHP = sadness_siteHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else if (utilizandoItem() == 2){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                sadness_siteHP = sadness_siteHP - 100;
+                            }
+                            else {
+                                sadness_siteHP = sadness_siteHP  - 40;
+                            }
+                        }
+
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                            System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                sadness_siteHP = sadness_siteHP - 100;
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            sadness_siteHP = sadness_siteHP  - 50;
+                        }
+
+                        else {
+                            sadness_siteHP = sadness_siteHP  - 40;
+                        }
+                    }
+
+                    else {
                         System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Use hierarquia: destaque o que importa para evitar que o usuário se perca.”");
                         vida = vida - 50;
                     }
                     break;
+
                 case 4:
                     System.out.println(" Quais são as implicações da presença de um design excessivamente carregado e sem foco no comportamento do usuário e nos indicadores de conversão?\n"
                             + " A) Pode aumentar a curiosidade do usuário, elevando taxas de cliques e conversão.\n"
@@ -659,8 +1042,50 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
-                        sadness_siteHP = sadness_siteHP - 50;
-                    } else {
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                    "\n1 - " + item1 +
+                                    "\n2 - " + item3 +
+                                    "\n3 - " + "Recusar.");
+
+                            if (utilizandoItem() == 1){
+                                inventário[0] = 2;
+                                sadness_siteHP = sadness_siteHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else if (utilizandoItem() == 2){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                sadness_siteHP = sadness_siteHP - 100;
+                            }
+                            else {
+                                sadness_siteHP = sadness_siteHP  - 40;
+                            }
+                        }
+
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                            System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                sadness_siteHP = sadness_siteHP - 100;
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            sadness_siteHP = sadness_siteHP  - 50;
+                        }
+
+                        else {
+                            sadness_siteHP = sadness_siteHP  - 40;
+                        }
+
+                    }
+
+                    else {
                         System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Enxugue o design: excesso visual drena atenção e derruba conversão.”");
                         vida = vida - 50;
@@ -678,6 +1103,22 @@ public class ParadoUXo {
             intervaloLongo();
             créditosFinais();
         } else {
+
+            if (inventário[0] == 2){
+                System.out.println("O item: " + item1 + " se quebrou.");
+                inventário[0] = 0;
+            }
+
+            if (inventário[1] == 2){
+                System.out.println("O item: " + item2 + " se quebrou.");
+                inventário[1] = 0;
+            }
+
+            if (inventário[2] == 2){
+                System.out.println("O item: " + item3 + " se quebrou.");
+                inventário[1] = 0;
+            }
+
             System.out.println("Você derrotou Sadness Site!!");
             intervaloCurto();
             emocoesUserX();
@@ -686,7 +1127,7 @@ public class ParadoUXo {
         return vida;
     }
 
-    static int lutaFinal(){
+    static int lutaFinal(int [] inventário){
         Scanner input = new Scanner(System.in);
         int vida = 100;
         int theMasterOfKnowledgeHP = 100;
@@ -696,10 +1137,34 @@ public class ParadoUXo {
 
         do {
             int perguntas = perguntas();
-            System.out.println(">>> THE MASTER OF KNOWLEDGE <<<\n"
-                    + "HP: " + theMasterOfKnowledgeHP + "%");
-            System.out.println("\nUserX\n"
-                    + "HP: " + vida + "%\n");
+
+            if (inventário[1] == 1){
+                System.out.println("Você possui o item: " + item2 + "\nGostaria de usá-lo?"+
+                        "\n1 - Sim" +
+                        "\n2 - Não");
+
+                if(sim_não() == 1){
+                    inventário[1] = 2;
+                    vida = 150;
+                    System.out.println(">>> THE MASTER OF KNOWLEDGE <<<\n"
+                            + "HP: " + theMasterOfKnowledgeHP);
+                    System.out.println("\nUserX\n"
+                            + "HP: " + vida + "\n");
+                }
+                else {
+                    System.out.println(">>> THE MASTER OF KNOWLEDGE <<<\n"
+                            + "HP: " + theMasterOfKnowledgeHP);
+                    System.out.println("\nUserX\n"
+                            + "HP: " + vida + "\n");
+                }
+            }
+            else {
+                System.out.println(">>> THE MASTER OF KNOWLEDGE <<<\n"
+                        + "HP: " + theMasterOfKnowledgeHP);
+                System.out.println("\nUserX\n"
+                        + "HP: " + vida + "\n");
+            }
+
             switch (perguntas) {
                 case 1:
                     System.out.println(" Na jornada do usuário, o que caracteriza o momento de 'descoberta'?");
@@ -708,14 +1173,79 @@ public class ParadoUXo {
                     System.out.println("C) Quando o usuário identifica uma necessidade ou problema e busca soluções");
                     System.out.println("D) Quando o usuário abandona a jornada por falta de interesse.");
                     System.out.print("Resposta: ");
+
                     alternativas = input.next();
+
                     if (alternativas.equalsIgnoreCase("C")) {
                         System.out.println("Resposta Correta!\n");
-                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
-                    } else {
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                    "\n1 - " + item1 +
+                                    "\n2 - " + item3 +
+                                    "\n3 - " + "Recusar.");
+
+                            if (utilizandoItem() == 1){
+                                inventário[0] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else if (utilizandoItem() == 2){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                            else {
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 40;
+                            }
+                        }
+
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                            System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                        }
+
+                        else if (inventário[0] == 1 && inventário[3] == 0){
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 50;
+                        }
+
+                        else {
+                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 40;
+                        }
+                    }
+
+
+                    else {
                         System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Observe o gatilho: entender o problema inicial do usuário orienta toda a solução.”");
-                        vida = vida - 50;
+                        if (inventário[3] == 1) {
+                            System.out.println("Você possui o item:" + item4 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1) {
+                                System.out.println("UserX se esquivou do ataque.");
+                            }else{
+                                vida = vida - 50;
+                            }
+                        }
                     }
                     break;
 
@@ -729,13 +1259,74 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta Correta!\n");
-                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
-                    } else {
-                        System.out.println("Resposta incorreta!\n" +
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                    "\n1 - " + item1 +
+                                    "\n2 - " + item3 +
+                                    "\n3 - " + "Recusar.");
+
+                            if (utilizandoItem() == 1){
+                                inventário[0] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else if (utilizandoItem() == 2){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                            else {
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 40;
+                            }
+                        }
+
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                            System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                        }
+                        else if (inventário[0] == 1 && inventário[3] == 0){
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 50;
+                        }
+
+                        else {
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 40;
+                        }
+                    }
+            else {
+                System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Monitore o que não controla: avaliações externas moldam a percepção antes do contato direto.”");
+
+                if (inventário[3] == 1) {
+                    System.out.println("Você possui o item:" + item4 + "\nDeseja utilizá-lo?" +
+                            "\n1 - Sim" +
+                            "\n2 - Não");
+                    if (sim_não() == 1) {
+                        System.out.println("UserX se esquivou do ataque.");
+                    }else{
                         vida = vida - 50;
                     }
-                    break;
+                }
+            }
+            break;
 
                 case 3:
                     System.out.println(" Qual das opções representa um dos principais objetivos da análise de pontos de contato na jornada do usuário?");
@@ -747,13 +1338,75 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta Correta!\n");
-                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
-                    } else {
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                    "\n1 - " + item1 +
+                                    "\n2 - " + item3 +
+                                    "\n3 - " + "Recusar.");
+
+                            if (utilizandoItem() == 1){
+                                inventário[0] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else if (utilizandoItem() == 2){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                            else {
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 40;
+                            }
+                        }
+
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                            System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                        }
+
+                        else if (inventário[0] == 1 && inventário[3] == 0){
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 50;
+                        }
+
+                        else {
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 40;
+                        }
+                    }
+                    else {
                         System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Use touchpoints como diagnóstico: cada ponto revela onde a experiência quebra.”");
-                        vida = vida - 50;
+                        if (inventário[3] == 1) {
+                            System.out.println("Você possui o item:" + item4 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1) {
+                                System.out.println("UserX se esquivou do ataque.");
+                            }else{
+                                vida = vida - 50;
+                            }
+                        }
                     }
                     break;
+
                 case 4:
                     System.out.println(" O que é considerado uma boa prática no design de interface para promover usabilidade?");
                     System.out.println("A) Utilizar cores vibrantes em todas as áreas da tela para chamar atenção");
@@ -764,11 +1417,72 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!");
-                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
-                    } else {
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                    "\n1 - " + item1 +
+                                    "\n2 - " + item3 +
+                                    "\n3 - " + "Recusar.");
+
+                            if (utilizandoItem() == 1){
+                                inventário[0] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else if (utilizandoItem() == 2){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                            else {
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 40;
+                            }
+                        }
+
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                            System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                        }
+                        else if (inventário[0] == 1 && inventário[3] == 0){
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 50;
+                        }
+
+                        else {
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 40;
+                        }
+                    }
+
+                    else {
                         System.out.println("Resposta incorreta!" +
                                 "Dica: “Mantenha padrões: consistência reduz esforço mental e aumenta fluidez.”");
-                        vida = vida - 50;
+                        if (inventário[3] == 1) {
+                            System.out.println("Você possui o item:" + item4 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1) {
+                                System.out.println("UserX se esquivou do ataque.");
+                            }else{
+                                vida = vida - 50;
+                            }
+                        }
                     }
                     break;
 
@@ -782,11 +1496,71 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("C")) {
                         System.out.println("Resposta Correta!\n");
-                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
-                    } else {
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                    "\n1 - " + item1 +
+                                    "\n2 - " + item3 +
+                                    "\n3 - " + "Recusar.");
+
+                            if (utilizandoItem() == 1){
+                                inventário[0] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else if (utilizandoItem() == 2){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                            else {
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 40;
+                            }
+                        }
+
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                            System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                        }
+                        else if (inventário[0] == 1 && inventário[3] == 0){
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 50;
+                        }
+
+                        else {
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 40;
+                        }
+                    }
+                    else {
                         System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Projete para sentir: emoção positiva cria confiança e mantém o usuário engajado.”");
-                        vida = vida - 50;
+                        if (inventário[3] == 1) {
+                            System.out.println("Você possui o item:" + item4 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1) {
+                                System.out.println("UserX se esquivou do ataque.");
+                            }else{
+                                vida = vida - 50;
+                            }
+                        }
                     }
                     break;
 
@@ -800,11 +1574,71 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("D")) {
                         System.out.println("Resposta Correta!\n");
-                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
-                    } else {
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                    "\n1 - " + item1 +
+                                    "\n2 - " + item3 +
+                                    "\n3 - " + "Recusar.");
+
+                            if (utilizandoItem() == 1){
+                                inventário[0] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else if (utilizandoItem() == 2){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                            else {
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 40;
+                            }
+                        }
+
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                            System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                        }
+                        else if (inventário[0] == 1 && inventário[3] == 0){
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 50;
+                        }
+
+                        else {
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 40;
+                        }
+                    }
+                else {
                         System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Eficiência é só o começo: UX exige entender contexto, expectativa e emoção.”");
-                        vida = vida - 50;
+                        if (inventário[3] == 1) {
+                            System.out.println("Você possui o item:" + item4 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1) {
+                                System.out.println("UserX se esquivou do ataque.");
+                            }else{
+                                vida = vida - 50;
+                            }
+                        }
                     }
                     break;
 
@@ -818,11 +1652,71 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
-                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
-                    } else {
+                                if (inventário[0] == 1 && inventário[3] == 1) {
+                                    System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                            "\n1 - " + item1 +
+                                            "\n2 - " + item3 +
+                                            "\n3 - " + "Recusar.");
+                                    if (utilizandoItem() == 1){
+                                        inventário[0] = 2;
+                                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                        System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                                    }
+                                    else if (utilizandoItem() == 2){
+                                        inventário[2] = 2;
+                                        System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                                    }
+                                    else {
+                                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 40;
+                                    }
+                                }
+
+                                else if (inventário[0] == 0 && inventário[3] == 1){
+                                    System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                            "\n1 - Sim" +
+                                            "\n2 - Não");
+
+                                    if (sim_não() == 1){
+                                        inventário[2] = 2;
+                                        System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                                    }
+                                }
+
+                                else if (inventário[0] == 1 && inventário[3] == 0){
+                                    System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                            "\n1 - Sim" +
+                                            "\n2 - Não");
+
+                                    if (sim_não() == 1){
+                                        inventário[2] = 2;
+                                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                        System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                                    }
+                                }
+                                else if (inventário[0] == 2){
+                                    theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 50;
+                                }
+
+                            else {
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 40;
+                            }
+                        }
+
+                    else {
                         System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Simplifique linguagem: jargão cria fricção e afasta o usuário.”");
-                        vida = vida - 50;
+                        if (inventário[3] == 1) {
+                            System.out.println("Você possui o item:" + item4 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1) {
+                                System.out.println("UserX se esquivou do ataque.");
+                            }else{
+                                vida = vida - 50;
+                            }
+                        }
                     }
                     break;
 
@@ -836,11 +1730,72 @@ public class ParadoUXo {
 
                     if (alternativas().equalsIgnoreCase("B")) {
                         System.out.println("Resposta Correta!\n");
-                        theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
-                    } else {
+                        if (inventário[0] == 1 && inventário[3] == 1) {
+                            System.out.println("Você possui os itens:" + item1 + " e " + item3 + "\nQual deseja utilizar?" +
+                                    "\n1 - " + item1 +
+                                    "\n2 - " + item3 +
+                                    "\n3 - " + "Recusar.");
+
+                            if (utilizandoItem() == 1){
+                                inventário[0] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                            else if (utilizandoItem() == 2){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                            else {
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 40;
+                            }
+                        }
+
+                        else if (inventário[0] == 0 && inventário[3] == 1){
+                            System.out.println("Você possui o item:" + item3 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                System.out.println("Você desferiu um golpe fatal contra seu oponente! \nDano extra nesta rodada: 60");
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 100;
+                            }
+                        }
+
+                        else if (inventário[0] == 1 && inventário[3] == 0){
+                            System.out.println("Você possui o item:" + item1 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+
+                            if (sim_não() == 1){
+                                inventário[2] = 2;
+                                theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 50;
+                                System.out.println("Seu oponente foi atingido! O alvo sofrerá dano de queimadura até o fim do combate.\n" + "Dano extra por rodada: 10");
+                            }
+                        }
+
+                        else if (inventário[0] == 2){
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP  - 50;
+                        }
+
+                        else {
+                            theMasterOfKnowledgeHP = theMasterOfKnowledgeHP - 40;
+                        }
+                    }
+                    else {
                         System.out.println("Resposta incorreta!\n" +
                                 "Dica: “Mapeie o caminho completo: ver a jornada revela falhas e oportunidades invisíveis.”");
-                        vida = vida - 50;
+                        if (inventário[3] == 1) {
+                            System.out.println("Você possui o item:" + item4 + "\nDeseja utilizá-lo?" +
+                                    "\n1 - Sim" +
+                                    "\n2 - Não");
+                            if (sim_não() == 1) {
+                                System.out.println("UserX se esquivou do ataque.");
+                            }else{
+                                vida = vida - 50;
+                            }
+                        }
                     }
                     break;
             }
@@ -894,6 +1849,7 @@ public class ParadoUXo {
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     public static void main(String[] args) {
+        int [] inventário = inventário();
 
         if (menu() == 1) {
             System.out.println("\nNas distantes terras de Valfendor, um pequeno elfo chamado UserX se preparava para o que se tornaria uma história contada através dos séculos.\n"
@@ -944,8 +1900,12 @@ public class ParadoUXo {
             intervaloLongo();
             System.out.println("Da dobra de seu manto, o velho retirou um medalhão, gravado com o mesmo símbolo de seu anel — o olho aberto cercado por runas.\n"
                     + "— Este artefato o conduzirá ao seu destino.\n");
+            intervaloCurto();
+            System.out.println("Aceitar artefato?\n"
+                    + "1 - Sim\n"
+                    + "2 - Não\n");
 
-            if (aceitarArtefato() == 2) {
+            if (sim_não() == 2) {
                 intervaloCurto();
                 créditosFinais();
 
@@ -974,7 +1934,9 @@ public class ParadoUXo {
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-                darkInterface();
+
+                darkInterface(inventário);
+
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 System.out.println("UserX ouviu um rangido ao fundo do salão, onde encontrou aberta uma porta simples demais para o lugar onde estava.\n"
@@ -1002,7 +1964,9 @@ public class ParadoUXo {
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-                infinittusOptions();
+
+                infinittusOptions(inventário);
+
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 System.out.println("UserX mal teve tempo de deduzir o óbvio antes de ouvir o rangido da porta ao final do salão.\n"
@@ -1035,7 +1999,9 @@ public class ParadoUXo {
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-                giantFear();
+
+                giantFear(inventário);
+
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 System.out.println("UserX mal teve tempo de deduzir o óbvio antes de ouvir o rangido da porta ao final do salão.\n"
@@ -1063,7 +2029,9 @@ public class ParadoUXo {
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-                sadnessSite();
+
+                sadnessSite(inventário);
+
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 System.out.println("Quatro dos desafios haviam sido superados.\n"
@@ -1085,7 +2053,9 @@ public class ParadoUXo {
                 intervaloCurto();
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
-                lutaFinal();
+
+                lutaFinal(inventário);
+
                 System.out.println("Pressione 1 para continuar");
                 botãoDeSkip();
                 System.out.println("A luz ao redor explodiu. Runas se acenderam em volta de UserX...");
