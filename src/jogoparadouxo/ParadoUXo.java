@@ -1130,7 +1130,7 @@ public class ParadoUXo {
     static int lutaFinal(int [] inventário){
         Scanner input = new Scanner(System.in);
         int vida = 100;
-        int theMasterOfKnowledgeHP = 100;
+        int theMasterOfKnowledgeHP = 200;
         String alternativas;
 
         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente. Respostas incorretas resultarão em danos ao UserX");
