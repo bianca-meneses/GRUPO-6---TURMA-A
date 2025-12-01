@@ -326,6 +326,7 @@ public class ParadoUXo {
                     + "HP: " + dark_interfaceHP);
             System.out.println("\nUserX\n"
                     + "HP: " + vida + "\n");
+
             switch (questao) {
                 case 1:
                     System.out.println("   O que é a jornada do usuário?\n"
@@ -418,7 +419,7 @@ public class ParadoUXo {
     static int infinittusOptions(int[] inventário) {
         Scanner input = new Scanner(System.in);
         int vida = 100;
-        int infinittus_optionsHP = 80;
+        int infinittus_optionsHP = 100;
 
         List<Integer> questoes = randomPerguntas(4);
 
@@ -595,7 +596,7 @@ public class ParadoUXo {
     static int giantFear(int[] inventário) {
         Scanner input = new Scanner(System.in);
         int vida = 100;
-        int giant_fearHP = 80;
+        int giant_fearHP = 120;
 
         List<Integer> questoes = randomPerguntas(4);
 
@@ -793,8 +794,8 @@ public class ParadoUXo {
     static int sadnessSite(int[] inventário) {
         Scanner input = new Scanner(System.in);
         int vida = 100;
-        int sadness_siteHP = 80;
-
+        int sadness_siteHP = 140;
+        int perguntasRestantes = 4;
         List<Integer> questoes = randomPerguntas(4);
 
         System.out.println("Responda as questões corretamente para infringir dano ao seu oponente.");
@@ -1018,6 +1019,21 @@ public class ParadoUXo {
                     break;
 
             }
+
+            perguntasRestantes--;
+            if (perguntasRestantes <= 0) {
+                if (vida >= sadness_siteHP) {
+                    sadness_siteHP = 0;
+                    System.out.println("\n As perguntas acabaram. Você venceu!");
+                } else if (vida < sadness_siteHP) {
+                    vida = 0;
+                    System.out.println("\nAs perguntas acabaram. Game Over.\n");
+                }
+            }
+             else if (perguntasRestantes <= 3) {
+                System.out.println("Restam " + perguntasRestantes + " perguntas.");
+            }
+
         } while (sadness_siteHP > 0 && vida > 0);
 
         if (vida <= 0) {
