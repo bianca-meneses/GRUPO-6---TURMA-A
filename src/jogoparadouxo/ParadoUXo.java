@@ -1,5 +1,13 @@
 package jogoparadouxo;
 
+/* GRUPO 6
+ * Barbada Oliveira
+ * Bianca Meneses 
+ * Camily Quintino
+ * Davi Teixeira
+ * Kauane Mineiro
+ */
+
 import java.util.*;
 
 public class ParadoUXo {
@@ -1943,3 +1951,4 @@ public class ParadoUXo {
     }
 
 }
+
